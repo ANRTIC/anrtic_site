@@ -3,12 +3,10 @@
 namespace App\Livewire\Backoffice\Gestion\Articles;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Article;
 
-#[Layout('livewire.layouts.backoffice')] 
 class Index extends Component
 {
     use WithPagination;
@@ -42,6 +40,6 @@ class Index extends Component
 
         return view('livewire.backoffice.gestion.articles.index', [
             "articles" => $articles
-        ]);
+        ])->extends("livewire.layouts.backoffice");
     }
 }

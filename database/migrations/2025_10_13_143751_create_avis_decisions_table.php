@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("reference");
             $table->text("description");
             $table->text("document");
-            $table->boolean("is_online")->default(false);
+            $table->boolean("is_online")->default(true);
             $table->date("adopted_at");
             $table->date("published_at");
             $table->timestamps();

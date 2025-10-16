@@ -68,8 +68,7 @@
                 Gestion
             </h4>
             <a href="{{ route('backoffice.articles') }}"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                wire:navigate>
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -79,8 +78,7 @@
                 <span class="grow py-1.5">Articles</span>
             </a>
             <a href="{{ route('backoffice.communiques') }}"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                wire:navigate>
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -328,8 +326,8 @@
                 </svg>
                 <span class="grow py-1.5">Avis & décisions</span>
             </a>
-            <a href="#"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
+            <a href="{{ route("backoffice.lois") }}"
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50" wire:navigate>
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -338,8 +336,8 @@
                 </svg>
                 <span class="grow py-1.5">Les lois</span>
             </a>
-            <a href="#"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
+            <a href="{{ route("backoffice.arretes") }}"
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50" wire:navigate>
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -348,8 +346,8 @@
                 </svg>
                 <span class="grow py-1.5">Les arrêtés</span>
             </a>
-            <a href="#"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
+            <a href="{{ route("backoffice.decrets") }}"
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50" wire:navigate>
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -358,8 +356,8 @@
                 </svg>
                 <span class="grow py-1.5">Les décrets</span>
             </a>
-            <a href="#"
-                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
+            <a href="{{ route("backoffice.notes_service") }}"
+                class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50" wire:navigate>
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -372,7 +370,7 @@
             <h4 class="mx-2.5 pt-6 pb-2 text-sm font-semibold text-black dark:text-white">
                 Pages
             </h4>
-            <a href="#"
+            <a href="{{  route("backoffice.motDG") }}"
                 class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -382,7 +380,7 @@
                 </svg>
                 <span class="grow py-1.5">Mot du DG</span>
             </a>
-            <a href="#"
+            <a href="{{ route("backoffice.organigramme") }}"
                 class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -392,7 +390,7 @@
                 </svg>
                 <span class="grow py-1.5">Organigramme</span>
             </a>
-            <a href="#"
+            <a href="{{ route("backoffice.planStrategique") }}"
                 class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -402,7 +400,7 @@
                 </svg>
                 <span class="grow py-1.5">Plan stratégique</span>
             </a>
-            <a href="#"
+            <a href="{{ route("backoffice.missions") }}"
                 class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -412,7 +410,7 @@
                 </svg>
                 <span class="grow py-1.5">Missions</span>
             </a>
-            <a href="#"
+            <a href="{{ route("backoffice.informationUtile") }}"
                 class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                 <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

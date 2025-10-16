@@ -12,16 +12,20 @@ Route::group(["as" => "backoffice.", "prefix" => "backoffice"], function () {
     // Gestion
     /* Articles */
     Volt::route("articles", "backoffice.gestion.articles.index")->name("articles");
-    Volt::route("articles/ajouter", "backoffice.gestion.articles.create")->name("articles.ajouter");
-    Volt::route("articles/modifier/{id}", "backoffice.gestion.articles.edit")->name("articles.modifier");
+    Route::get("articles/ajouter", [App\Http\Controllers\Admin\ArticleController::class, "create"])->name("articles.create");
+    Route::post("articles/ajouter", [App\Http\Controllers\Admin\ArticleController::class, "store"])->name("articles.store");
+    Route::get("articles/modifier/{id}", [App\Http\Controllers\Admin\ArticleController::class, "edit"])->name("articles.edit");
+    Route::post("articles/modifier/{id}", [App\Http\Controllers\Admin\ArticleController::class, "update"])->name("articles.update");
 
     /* Evènements */
     Volt::route("evenements", "backoffice.gestion.evenements.index")->name("evenements");
 
     /* Communiques */
     Volt::route("communiques", "backoffice.gestion.communiques.index")->name("communiques");
-    Volt::route("communiques/ajouter", "backoffice.gestion.communiques.create")->name("communiques.ajouter");
-    Volt::route("communiques/modifier/{id}", "backoffice.gestion.communiques.edit")->name("communiques.modifier");
+    Route::get("communiques/ajouter", [App\Http\Controllers\Admin\CommuniqueController::class, "create"])->name("communiques.create");
+    Route::post("communiques/ajouter", [App\Http\Controllers\Admin\CommuniqueController::class, "store"])->name("communiques.store");
+    Route::get("communiques/modifier/{id}", [App\Http\Controllers\Admin\CommuniqueController::class, "edit"])->name("communiques.edit");
+    Route::post("communiques/modifier/{id}", [App\Http\Controllers\Admin\CommuniqueController::class, "update"])->name("communiques.update");
 
     /* Partenaires */
     Volt::route("partenaires", "backoffice.gestion.partenaires.index")->name("partenaires");
@@ -38,6 +42,29 @@ Route::group(["as" => "backoffice.", "prefix" => "backoffice"], function () {
     Volt::route("avis-decisions", "backoffice.textes.avisdecisions.index")->name("avis-decisions");
     Volt::route("avis-decisions/ajouter", "backoffice.textes.avisdecisions.create")->name("avis-decisions.ajouter");
     Volt::route("avis-decisions/modifier/{id}", "backoffice.textes.avisdecisions.edit")->name("avis-decisions.modifier");
+    /* Lois */
+    Volt::route("lois", "backoffice.textes.lois.index")->name("lois");
+    Volt::route("lois/ajouter", "backoffice.textes.lois.create")->name("lois.ajouter");
+    Volt::route("lois/modifier/{id}", "backoffice.textes.lois.edit")->name("lois.modifier");
+    /* Arrêtés */
+    Volt::route("arretes", "backoffice.textes.arretes.index")->name("arretes");
+    Volt::route("arretes/ajouter", "backoffice.textes.arretes.create")->name("arretes.ajouter");
+    Volt::route("arretes/modifier/{id}", "backoffice.textes.arretes.edit")->name("arretes.modifier");
+    /* Décrets */
+    Volt::route("decrets", "backoffice.textes.decrets.index")->name("decrets");
+    Volt::route("decrets/ajouter", "backoffice.textes.decrets.create")->name("decrets.ajouter");
+    Volt::route("decrets/modifier/{id}", "backoffice.textes.decrets.edit")->name("decrets.modifier");
+    /* Notes de service */
+    Volt::route("notes-service", "backoffice.textes.notes_service.index")->name("notes_service");
+    Volt::route("notes-service/ajouter", "backoffice.textes.notes_service.create")->name("notes_service.ajouter");
+    Volt::route("notes-service/modifier/{id}", "backoffice.textes.notes_service.edit")->name("notes_service.modifier");
+
+    // Pages
+    Route::match(["get", "post"], "/mot-du-directeur-general", [\App\Http\Controllers\Admin\PageController::class, "motDG"])->name("motDG");
+    Route::match(["get", "post"], "/organigramme", [\App\Http\Controllers\Admin\PageController::class, "organigramme"])->name("organigramme");
+    Route::match(["get", "post"], "/plan-strategique", [\App\Http\Controllers\Admin\PageController::class, "planStrategique"])->name("planStrategique");
+    Route::match(["get", "post"], "/missions", [\App\Http\Controllers\Admin\PageController::class, "missions"])->name("missions");
+    Route::match(["get", "post"], "/information-utile", [\App\Http\Controllers\Admin\PageController::class, "informationUtile"])->name("informationUtile");
 
     // Autres
     /* Categories */

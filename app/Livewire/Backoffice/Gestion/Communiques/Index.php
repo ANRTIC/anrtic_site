@@ -3,12 +3,10 @@
 namespace App\Livewire\Backoffice\Gestion\Communiques;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Communique;
 
-#[Layout('livewire.layouts.backoffice')] 
 class Index extends Component
 {
     use WithPagination;
@@ -42,6 +40,6 @@ class Index extends Component
 
         return view('livewire.backoffice.gestion.communiques.index', [
             "communiques" => $communiques
-        ]);
+        ])->extends("livewire.layouts.backoffice");
     }
 }

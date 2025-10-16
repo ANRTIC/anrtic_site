@@ -18,8 +18,10 @@
     @vite([
         'resources/css/app.css', 
         'resources/js/app.js',
+        // Froala editor
         'resources/js/froala_editor.js',
-        'resources/js/fullcalendar.js'
+        // Fullcalendar
+        'resources/js/fullcalendar.js',
     ])
 </head>
 <body>
@@ -68,7 +70,7 @@
             class="flex max-w-full flex-auto flex-col pt-16 lg:pt-0"
         >
             <div class="mx-auto w-full max-w-10xl p-4 lg:p-8">
-                {{ $slot }}
+                @yield('content')
             </div>
         </main>
     </div>

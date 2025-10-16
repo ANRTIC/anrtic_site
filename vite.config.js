@@ -10,12 +10,11 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/js/app.js',
-
                 // Froala editor
                 'resources/js/froala_editor.js',
 
                 // Fullcalendar
-                'resources/js/fullcalendar.js'
+                'resources/js/fullcalendar.js',
             ],
             refresh: true,
         }),

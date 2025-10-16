@@ -24,9 +24,8 @@
         </div>
         <div
             class="flex items-center justify-center gap-2 rounded-sm px-2 py-3 sm:justify-end sm:bg-transparent sm:px-0">
-            <a href="{{ route('backoffice.articles.ajouter') }}"
-                class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90"
-                wire:navigate>
+            <a href="{{ route('backoffice.articles.create') }}"
+                class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90">
                 <svg class=" inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
@@ -59,7 +58,7 @@
                 <!-- Card Body -->
                 <div class="flex grow flex-col gap-5 p-5">
                     <!-- Placeholder -->
-                    <a href="{{ route('backoffice.articles.modifier', $article->id) }}"
+                    <a href="{{ route('backoffice.articles.edit', $article->id) }}"
                         class="group relative flex overflow-hidden transition ease-out aspect-4/3 w-full items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700/75">
                         <img src="{{ $article->thumbnail() }}" alt="{{ $article->short_description }}"
                             class="transition ease-out group-hover:scale-110" />
@@ -68,7 +67,7 @@
 
                     <!-- Content -->
                     <div>
-                        <a href="{{ route('backoffice.articles.modifier', $article->id) }}"
+                        <a href="{{ route('backoffice.articles.edit', $article->id) }}"
                             class="hover:text-green-600">
                             <h3 class="font-bold">
                                 {{ Str::limit($article->short_description, 40) }} 

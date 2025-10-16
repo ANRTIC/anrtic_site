@@ -37,8 +37,7 @@
     </div>
 
     <!-- Table -->
-    <div
-        class="flex flex-col mt-4 rounded-xl bg-gray-100/75 p-2 ring ring-gray-200/50 dark:bg-gray-800/35 dark:text-gray-100 dark:ring-gray-800/60">
+    <div class="flex flex-col mt-4 rounded-xl bg-gray-100/75 p-2 ring ring-gray-200/50 dark:bg-gray-800/35 dark:text-gray-100 dark:ring-gray-800/60">
         <div
             class="mb-2 grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
             <div class="relative">
@@ -56,9 +55,7 @@
                     placeholder="Rechercher..." />
             </div>
         </div>
-        <div
-            class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
-            <!-- Responsive Table Container -->
+        <div class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
             <div class="min-w-full overflow-x-auto rounded-sm">
                 <table class="min-w-full align-middle text-sm whitespace-nowrap">
                     <!-- Table Header -->
@@ -150,7 +147,6 @@
                                             Non publié
                                         </div>
                                     @endif
-
                                 </td>
                                 <td class="py-3 pl-3 text-right">
                                     <div class="inline-flex items-center gap-1">

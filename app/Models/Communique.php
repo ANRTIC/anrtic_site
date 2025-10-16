@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Communique extends Model
 {
@@ -36,5 +38,12 @@ class Communique extends Model
     public function thumbnail()
     {
         return Storage::url($this->thumbnail);
+    }
+
+    protected function publicationDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Carbon::parse($value)
+        );
     }
 }
