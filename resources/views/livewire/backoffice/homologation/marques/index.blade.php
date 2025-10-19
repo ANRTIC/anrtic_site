@@ -7,7 +7,7 @@
                 <ol class="flex items-center justify-center sm:justify-start">
                     <li>
                         <a href="javascript:void(0)"
-                            class="text-green-600 hover:text-green-400 dark:text-green-400 dark:hover:text-green-300">Autres</a>
+                            class="text-green-600 hover:text-green-400 dark:text-green-400 dark:hover:text-green-300">Homologation</a>
                     </li>
                     <li class="flex items-center px-1 opacity-25">
                         <svg class="hi-mini hi-chevron-right inline-block size-5" xmlns="http://www.w3.org/2000/svg"
@@ -17,21 +17,21 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </li>
-                    <li>Catégories</li>
+                    <li>Marques</li>
                 </ol>
             </nav>
-            <h2 class="text-2xl font-bold">Toutes les catégories</h2>
+            <h2 class="text-2xl font-bold">Toutes les marques</h2>
         </div>
         <div
             class="flex items-center justify-center gap-2 rounded-sm px-2 py-3 sm:justify-end sm:bg-transparent sm:px-0">
-            <a href="{{ route('backoffice.categories.ajouter') }}"
+            <a href="{{ route('backoffice.homologation.marques.ajouter') }}"
                 class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90"
                 wire:navigate>
                 <svg class=" inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
                 </svg>
-                <span>Ajouter une catégorie</span>
+                <span>Ajouter une marque</span>
             </a>
         </div>
     </div>
@@ -71,22 +71,6 @@
                                 </div>
                             </th>
                             <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                <div class="inline-flex items-center gap-2">
-                                    <span>Statut</span>
-                                    <button type="button"
-                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-1.5 py-1 text-sm leading-5 font-semibold text-gray-800 opacity-25 transition group-hover:opacity-100 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
-                                        <svg class="hi-mini hi-chevron-up-down inline-block size-4"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                            aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </th>
-                            <th
                                 class="group bg-gray-100/75 px-3 py-4 text-right font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
                                 <span>Actions</span>
                             </th>
@@ -96,28 +80,14 @@
 
                     <!-- Table Body -->
                     <tbody>
-                        @forelse ($categories as $categorie)
+                        @forelse ($marques as $marque)
                             <tr class="even:bg-gray-50 dark:even:bg-gray-900/50">
                                 <td class="p-3">
-                                    <p class="font-medium">{{ $categorie->name }}</p>
-                                </td>
-                                <td class="p-3">
-                                    @if ($categorie->is_active)
-                                        <div
-                                            class="inline-flex rounded-full border border-transparent bg-green-100 px-2 py-1 text-xs leading-4 font-semibold text-green-900 dark:border-green-900 dark:bg-green-700/10 dark:font-medium dark:text-green-200">
-                                            Actif
-                                        </div>
-                                    @else
-                                        <div
-                                            class="inline-flex rounded-full border border-transparent bg-orange-100 px-2 py-1 text-xs leading-4 font-semibold text-orange-900 dark:border-orange-900/75 dark:bg-orange-700/10 dark:font-medium dark:text-orange-200">
-                                            Inactif
-                                        </div>
-                                    @endif
-
+                                    <p class="font-medium">{{ $marque->name }}</p>
                                 </td>
                                 <td class="py-3 pl-3 text-right">
                                     <div class="inline-flex items-center gap-1">
-                                        <a href="{{ route('backoffice.categories.modifier', $categorie->id) }}"
+                                        <a href="{{ route('backoffice.homologation.marques.modifier', $marque->id) }}"
                                             class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
                                             wire:navigate>
                                             Modifier
@@ -125,7 +95,7 @@
                                         <button type="button"
                                             x-on:click="open = true"
                                             class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
-                                            wire:click="selectCategory({{ $categorie }})">
+                                            wire:click="selectBrand({{ $marque }})">
                                             Supprimer
                                         </button>
                                     </div>
@@ -174,7 +144,7 @@
                 <div>
                     <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Êtes-vous sûr de vouloir supprimer cette catégorie ?
+                        Êtes-vous sûr de vouloir supprimer cette marque ?
                     </p>
                 </div>
             </div>
@@ -185,7 +155,7 @@
                 </button>
                 <button x-on:click="open = false" 
                     type="button"
-                    wire:click="deleteCategory"
+                    wire:click="deleteBrand"
                     class="inline-flex items-center justify-center gap-2 rounded-lg border border-rose-700 bg-rose-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-rose-600 hover:bg-rose-600 hover:text-white focus:ring-3 focus:ring-rose-400/50 active:border-rose-700 active:bg-rose-700 dark:focus:ring-rose-400/90">
                     Supprimer
                 </button>
@@ -196,7 +166,7 @@
 
     <!-- Pagination -->
     <div class="grow border-t border-gray-200 px-5 py-4 dark:border-gray-700">
-        {{ $categories->links() }}
+        {{ $marques->links() }}
     </div>
 
 </div>

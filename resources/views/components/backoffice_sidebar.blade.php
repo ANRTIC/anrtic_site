@@ -474,7 +474,7 @@
                     </svg>
                     <span class="grow py-1.5">Catégories</span>
                 </a>
-                <a href="#"
+                <a href="{{ route("backoffice.homologation.marques") }}"
                     class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
                     wire:navigate>
                     <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"

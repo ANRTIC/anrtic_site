@@ -91,6 +91,12 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
             Volt::route("categories", "backoffice.homologation.categories.index")->name("categories");
             Volt::route("categories/ajouter", "backoffice.homologation.categories.create")->name("categories.ajouter");
             Volt::route("categories/modifier/{id}", "backoffice.homologation.categories.edit")->name("categories.modifier");
+
+            /* Marques */
+            Volt::route("marques", "backoffice.homologation.marques.index")->name("marques");
+            Volt::route("marques/ajouter", "backoffice.homologation.marques.create")->name("marques.ajouter");
+            Volt::route("marques/modifier/{id}", "backoffice.homologation.marques.edit")->name("marques.modifier");
+            
         });
 
     });
