@@ -86,6 +86,11 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
             Volt::route("equipements", "backoffice.homologation.equipements.index")->name("equipements");
             Volt::route("equipements/ajouter", "backoffice.homologation.equipements.create")->name("equipements.ajouter");
             Volt::route("equipements/modifier/{id}", "backoffice.homologation.equipements.edit")->name("equipements.modifier");
+
+            /* Catégories */
+            Volt::route("categories", "backoffice.homologation.categories.index")->name("categories");
+            Volt::route("categories/ajouter", "backoffice.homologation.categories.create")->name("categories.ajouter");
+            Volt::route("categories/modifier/{id}", "backoffice.homologation.categories.edit")->name("categories.modifier");
         });
 
     });
