@@ -44,12 +44,20 @@ class DatabaseSeeder extends Seeder
             "last_name" => "FOUAD",
             "email" => "nibrasse0108@gmail.com"
         ]);
+        // Blocked account
+        $user5 = User::factory()->create([
+            "first_name" => "Awesso",
+            "last_name" => "GNIMDOU",
+            "email" => "awesso2002@gmail.com",
+            "is_blocked" => true
+        ]);
 
 
         $user1->assignRole($role1);
         $user2->assignRole($role2);
         $user3->assignRole($role3);
         $user4->assignRole($role4);
+        $user5->assignRole($role4);
         
     }
 }

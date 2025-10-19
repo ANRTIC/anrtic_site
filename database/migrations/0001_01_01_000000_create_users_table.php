@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_blocked')->default(false);
             $table->foreignIdFor(User::class, "created_by_user_id")->nullable()->constrained()->nullOnDelete();
             $table->rememberToken();
             $table->timestamps();
@@ -38,7 +39,7 @@ return new class extends Migration
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->timestamp('last_activity')->index();
         });
     }
 

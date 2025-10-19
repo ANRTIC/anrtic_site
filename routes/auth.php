@@ -1,11 +1,11 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::middleware(["auth"])->group(function() {
-
+Route::middleware(["auth:sanctum", "verified"])->group(function() {
 
     Route::group(["as" => "backoffice.", "prefix" => "backoffice"], function () {
 
@@ -73,6 +73,21 @@ Route::middleware(["auth"])->group(function() {
         Volt::route("categories", "backoffice.autres.categories.index")->name("categories");
         Volt::route("categories/ajouter", "backoffice.autres.categories.create")->name("categories.ajouter");
         Volt::route("categories/modifier/{id}", "backoffice.autres.categories.edit")->name("categories.modifier");
+
+        // Homologation
+        Route::group(["as" => "homologation.", "prefix" => "homologation"], function () {
+
+            /* Agents */         
+            Volt::route("agents", "backoffice.homologation.agents.index")->name("agents");
+            Volt::route("agents/ajouter", "backoffice.homologation.agents.create")->name("agents.ajouter");
+            Volt::route("agents/modifier/{id}", "backoffice.homologation.agents.edit")->name("agents.modifier");
+
+            /* Equipements */
+            Volt::route("equipements", "backoffice.homologation.equipements.index")->name("equipements");
+            Volt::route("equipements/ajouter", "backoffice.homologation.equipements.create")->name("equipements.ajouter");
+            Volt::route("equipements/modifier/{id}", "backoffice.homologation.equipements.edit")->name("equipements.modifier");
+        });
+
     });
     
 });
@@ -94,13 +109,20 @@ Route::middleware('guest')->group(function () {
 
 });
 
-Route::middleware('auth')->group(function () {
-    Volt::route('verify-email', 'auth.verify-email')
+// Account verification
+Route::middleware(["auth:sanctum", "email.verified"])->group(function () {
+    Volt::route('verify-email', 'authentication.verify-email')
         ->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
         ->middleware(['signed', 'throttle:6,1'])
         ->name('verification.verify');
+
+    Route::post("/email/verification-notification", function(Request $request) {
+        //$request->user()->sendEmailVerificationNotification();
+
+        return back()->with("message", "Le lien de vérification est envoyé!");
+    })->middleware(["throttle:6,1"])->name("verification.send");
 });
 
 Route::post('logout', App\Livewire\Actions\Logout::class)

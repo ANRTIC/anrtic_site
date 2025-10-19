@@ -6,23 +6,23 @@ use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Features;
 use Livewire\Attributes\Layout;
-use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Component;
 
 #[Layout('livewire.layouts.authentication')]
 class Login extends Component
 {
+    #[Validate('required|string|email')]
+    public string $email = '';
 
-    #[Validate("required|string|email")]
-    public string $email = "";
-    #[Validate("required|string")]
-    public string $password = "";
+    #[Validate('required|string')]
+    public string $password = '';
+
     public bool $remember = false;
 
     public function login(): void
@@ -33,7 +33,14 @@ class Login extends Component
 
         $user = $this->validateCredentials();
 
-        if (Features::canManageTwoFactorAuthentication() && $user->hasEnabledTwoFactorAuthentication()) {
+        if ($user->is_blocked) {
+            throw ValidationException::withMessages([
+                'email' => __('auth.blocked'),
+            ]);
+        }
+
+        
+        /*if (Features::canManageTwoFactorAuthentication() && $user->hasEnabledTwoFactorAuthentication()) {
             Session::put([
                 'login.id' => $user->getKey(),
                 'login.remember' => $this->remember,
@@ -42,7 +49,7 @@ class Login extends Component
             $this->redirect(route('two-factor.login'), navigate: true);
 
             return;
-        }
+        }*/
 
         Auth::login($user, $this->remember);
 
@@ -78,10 +85,10 @@ class Login extends Component
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            "email" => __("auth.throttle", [
-                "seconds" => $seconds,
-                "minutes" => ceil($seconds / 60)
-            ])
+            'email' => __('auth.throttle', [
+                'seconds' => $seconds,
+                'minutes' => ceil($seconds / 60),
+            ]),
         ]);
     }
 
@@ -95,5 +102,3 @@ class Login extends Component
         return view('livewire.authentication.login');
     }
 }
-
-

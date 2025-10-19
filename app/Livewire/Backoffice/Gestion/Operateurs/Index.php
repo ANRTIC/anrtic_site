@@ -8,7 +8,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Operateur;
 
-#[Layout('livewire.layouts.backoffice')] 
+#[Layout('livewire.layouts.backoffice')]
 class Index extends Component
 {
     use WithPagination;

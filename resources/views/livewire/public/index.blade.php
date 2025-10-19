@@ -220,7 +220,7 @@
                     'pb-3': dotsNavigation === 'inner',
                 }">
                 <!-- Content Slider Container -->
-                <div class="group relative overflow-hidden rounded-2xl bg-white focus:outline-hidden focus-visible:ring-4 focus-visible:ring-emerald-400/60 dark:bg-gray-800"
+                <div class="group relative overflow-hidden rounded-2xl bg-white focus:outline-hidden focus-visible:ring-4 focus-visible:ring-green-400/60 dark:bg-gray-800"
                     tabindex="0" x-on:keyup.right="next('button')" x-on:keyup.left="previous('button')">
                     <!-- Slides -->
                     <div class="aspect-16/10 w-full" role="region" aria-roledescription="carousel"
@@ -254,7 +254,7 @@
                                     <dt class="text-4xl font-extrabold text-green-700 md:text-5xl dark:text-green-300">
                                         <span class="relative inline-block">
                                             <span
-                                                class="absolute inset-0 inline-block translate-x-1 translate-y-1 text-green-200 transition select-none dark:text-emerald-900"
+                                                class="absolute inset-0 inline-block translate-x-1 translate-y-1 text-green-200 transition select-none dark:text-green-900"
                                                 x-text="slide.label"></span>
                                             <span class="relative" x-text="slide.label"></span>
                                         </span>
@@ -358,7 +358,7 @@
                         <a href="#"
                             class="group relative flex aspect-16/9 w-full items-center justify-center overflow-hidden rounded-lg bg-yellow-200">
                             <div
-                                class="absolute inset-0 flex items-center justify-center bg-emerald-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
+                                class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
                                 <svg class="hi-solid hi-arrow-right inline-block size-10 -rotate-45 text-white"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                     aria-hidden="true">
@@ -398,9 +398,9 @@
                 </div>
                 <div class="flex flex-col lg:col-span-2">
                     <a href="#"
-                        class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-emerald-200">
+                        class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-green-200">
                         <div
-                            class="absolute inset-0 flex items-center justify-center bg-emerald-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
+                            class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
                             <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                                 class="hi-solid hi-arrow-right inline-block size-10 -rotate-45 text-white">
                                 <path fill-rule="evenodd"
@@ -408,7 +408,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <svg class="hi-solid hi-document-chart-bar inline-block size-20 text-emerald-700"
+                        <svg class="hi-solid hi-document-chart-bar inline-block size-20 text-green-700"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                             aria-hidden="true">
                             <path fill-rule="evenodd"
@@ -437,7 +437,7 @@
                     <a href="#"
                         class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-orange-200">
                         <div
-                            class="absolute inset-0 flex items-center justify-center bg-emerald-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
+                            class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
                             <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                                 class="hi-solid hi-arrow-right inline-block size-10 -rotate-45 text-white">
                                 <path fill-rule="evenodd"
@@ -490,7 +490,7 @@
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
                 <a href="#" class="group relative block">
                     <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-emerald-100 dark:bg-gray-800 dark:group-active:bg-emerald-600/25">
+                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
                     </div>
                     <div class="relative">
                         <img src="https://cdn.tailkit.com/media/placeholders/photo-73F4pKoUkM0-800x600.jpg"
@@ -506,7 +506,7 @@
                 </a>
                 <a href="#" class="group relative block">
                     <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-emerald-100 dark:bg-gray-800 dark:group-active:bg-emerald-600/25">
+                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
                     </div>
                     <div class="relative">
                         <img src="https://cdn.tailkit.com/media/placeholders/photo-phIFdC6lA4E-800x600.jpg"
@@ -521,7 +521,7 @@
                 </a>
                 <a href="#" class="group relative block">
                     <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-emerald-100 dark:bg-gray-800 dark:group-active:bg-emerald-600/25">
+                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
                     </div>
                     <div class="relative">
                         <img src="https://cdn.tailkit.com/media/placeholders/photo-T7K4aEPoGGk-800x600.jpg"

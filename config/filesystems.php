@@ -84,6 +84,7 @@ return [
         public_path("/media/arretes") => storage_path("app/public/media/arretes"),
         public_path("/media/decrets") => storage_path("app/public/media/decrets"),
         public_path("/media/notes_service") => storage_path("app/public/media/notes_service"),
+        public_path("/media/user_profiles") => storage_path("app/public/media/user_profiles")
     ],
 
 ];
