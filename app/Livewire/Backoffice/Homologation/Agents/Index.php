@@ -14,19 +14,21 @@ class Index extends Component
     public $perPage = 8;
     public $selected;
 
-    public function selectAgentAccount()
+    public function selectAgent(User $user)
     {
-
+        $this->selected = $user;
     }
 
-    public function suspendAgentAccount()
+    public function blockAgent()
     {
-
+        $this->selected->update(["is_blocked" => true]);
+        return $this->redirect(route("backoffice.homologation.agents"), navigate: true);
     }
 
-    public function deleteAgentAccount()
+    public function unblockAgent()
     {
-
+        $this->selected->update(["is_blocked" => false]);
+        return $this->redirect(route("backoffice.homologation.agents"), navigate: true);
     }
 
     public function render()
@@ -43,7 +45,7 @@ class Index extends Component
 
             $agents = $agents->paginate($this->perPage);
         } else {
-            $agents = $agents->get();
+            $agents = $agents->paginate($this->perPage);
         }
         return view('livewire.backoffice.homologation.agents.index', [
             "agents" => $agents

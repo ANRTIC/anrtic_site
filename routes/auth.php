@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::middleware(["auth:sanctum", "verified"])->group(function() {
+Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function() {
 
     Route::group(["as" => "backoffice.", "prefix" => "backoffice"], function () {
 

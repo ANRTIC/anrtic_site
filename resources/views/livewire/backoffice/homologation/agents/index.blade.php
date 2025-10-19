@@ -1,5 +1,5 @@
 <div class="flex flex-col overflow-hidden rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100"
-    x-data="{ open: false }">
+    x-data="{ openBlockModal: false, openUnblockModal: false }">
     <!-- Card -->
     <div
         class="flex flex-col gap-3 bg-gray-50 px-5 py-4 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-left dark:bg-gray-700/50">
@@ -188,12 +188,14 @@
                                             Modifier
                                         </a>
                                         @if (!$agent->is_blocked)
-                                            <button type="button"
+                                            <button type="button" x-on:click='openBlockModal = true'
+                                                wire:click="selectAgent({{ $agent }})"
                                                 class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700">
                                                 Bloquer
                                             </button>
                                         @else
-                                            <button type="button"
+                                            <button type="button" x-on:click='openUnblockModal = true'
+                                                wire:click="selectAgent({{ $agent }})"
                                                 class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-200 bg-green-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-green-600 hover:border-green-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700">
                                                 Débloquer
                                             </button>
@@ -212,6 +214,101 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    <!-- block modal -->
+    <div x-cloak x-show="openBlockModal" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0" x-bind:aria-hidden="!openBlockModal" tabindex="-1" role="dialog"
+        class="fixed inset-0 z-90 overflow-x-hidden overflow-y-auto bg-gray-900/75 p-4 backdrop-blur-xs lg:p-8">
+        <!-- Modal Dialog -->
+        <div x-cloak x-show="openBlockModal" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-125" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-125" role="document"
+            class="mx-auto flex w-full max-w-md flex-col overflow-hidden rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100">
+            <div class="flex grow gap-5 px-5 py-7">
+                <div
+                    class="flex size-14 flex-none items-center justify-center rounded-full bg-rose-100 text-rose-500 dark:bg-rose-700/50 dark:text-rose-300">
+                    <svg class="hi-outline hi-shield-exclamation inline-block size-6" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Êtes-vous sûr de vouloir bloquer le compte de cet agent ?
+                    </p>
+                </div>
+            </div>
+            <div class="space-x-1 bg-gray-50 px-5 py-4 text-right dark:bg-gray-700/50">
+                <button x-on:click="openBlockModal = false" type="button"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
+                    Annuler
+                </button>
+                <button x-on:click="openBlockModal = false" 
+                    type="button"
+                    wire:click="blockAgent"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-rose-700 bg-rose-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-rose-600 hover:bg-rose-600 hover:text-white focus:ring-3 focus:ring-rose-400/50 active:border-rose-700 active:bg-rose-700 dark:focus:ring-rose-400/90">
+                    Bloquer
+                </button>
+            </div>
+        </div>
+        <!-- END Modal Dialog -->
+    </div>
+    
+    <!-- unblock modal -->
+    <div x-cloak x-show="openUnblockModal" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0" x-bind:aria-hidden="!openUnblockModal" tabindex="-1" role="dialog"
+        class="fixed inset-0 z-90 overflow-x-hidden overflow-y-auto bg-gray-900/75 p-4 backdrop-blur-xs lg:p-8">
+        <!-- Modal Dialog -->
+        <div x-cloak x-show="openUnblockModal" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-125" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-125" role="document"
+            class="mx-auto flex w-full max-w-md flex-col overflow-hidden rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100">
+            <div class="flex grow gap-5 px-5 py-7">
+                <div
+                    class="flex size-14 flex-none items-center justify-center rounded-full bg-green-100 text-green-500 dark:bg-green-700/50 dark:text-green-300">
+                    <svg class="hi-outline hi-shield-exclamation inline-block size-6" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Êtes-vous sûr de vouloir débloquer le compte de cet agent ?
+                    </p>
+                </div>
+            </div>
+            <div class="space-x-1 bg-gray-50 px-5 py-4 text-right dark:bg-gray-700/50">
+                <button x-on:click="openUnblockModal = false" type="button"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
+                    Annuler
+                </button>
+                <button x-on:click="openUnblockModal = false" 
+                    type="button"
+                    wire:click="unblockAgent"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90">
+                    Confirmer
+                </button>
+            </div>
+        </div>
+        <!-- END Modal Dialog -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="grow border-t border-gray-200 px-5 py-4 dark:border-gray-700">
+        {{ $agents->links() }}
     </div>
 
 </div>
