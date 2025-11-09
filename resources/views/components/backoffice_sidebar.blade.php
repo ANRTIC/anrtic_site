@@ -463,6 +463,17 @@
                     </svg>
                     <span class="grow py-1.5">Equipements</span>
                 </a>
+                <a href="{{ route("backoffice.homologation.demandeurs") }}"
+                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
+                    wire:navigate>
+                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M14 20H10V22H8V20H5C4.44772 20 4 19.5523 4 19V16H2V14H4V10H2V8H4V5C4 4.44772 4.44772 4 5 4H8V2H10V4H14V2H16V4H19C19.5523 4 20 4.44772 20 5V8H22V10H20V14H22V16H20V19C20 19.5523 19.5523 20 19 20H16V22H14V20ZM7 7V11H11V7H7Z">
+                        </path>
+                    </svg>
+                    <span class="grow py-1.5">Demandeurs</span>
+                </a>
                 <a href="{{ route("backoffice.homologation.categories") }}"
                     class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
                     wire:navigate>
@@ -537,17 +548,22 @@
                 class="absolute inset-0 scale-50 rounded-lg bg-gray-100 opacity-0 transition ease-out group-hover:scale-100 group-hover:opacity-100 group-active:scale-105 group-active:bg-gray-200 dark:bg-gray-700/50 dark:group-active:bg-gray-700/75"></span>
             <span class="relative inline-flex items-center gap-2">
                 <span class="relative inline-block flex-none">
-                    <span
-                        class="absolute top-0 right-0 -mt-1 -mr-1 size-3 rounded-full border-2 border-white bg-green-500"></span>
-                    <img src="https://cdn.tailkit.com/media/placeholders/avatar-bY4GXQKfZrA-160x160.jpg"
-                        alt="User Avatar" class="inline-block size-8 rounded-lg" />
+                    <span class="absolute top-0 right-0 -mt-1 -mr-1 size-3 rounded-full border-2 border-white bg-green-500"></span>
+                    @if (Auth::user()->photo)
+                        <img src="{{ Auth::user()->photoURL() }}"
+                            alt="{{ Auth::user()->last_name . ' ' . Auth::user()->first_name }}"
+                            class="inline-block size-8 rounded-lg" />
+                    @else
+                        <img src="{{ asset('logo/anonymous.jpg') }}"
+                            class="inline-block size-10 rounded-full" />
+                    @endif
                 </span>
                 <span class="flex grow flex-col text-left">
                     <span class="w-40 truncate text-sm font-semibold">
-                        Emma Doe
+                        {{ Auth::user()->last_name." ".Auth::user()->first_name  }}
                     </span>
                     <span class="w-40 truncate text-xs font-medium text-gray-500 dark:text-gray-400">
-                        @emma.doe
+                        {{ Auth::user()->email }}
                     </span>
                 </span>
             </span>

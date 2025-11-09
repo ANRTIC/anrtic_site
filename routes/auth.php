@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use Livewire\Livewire;
 
 Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function() {
 
@@ -86,6 +87,13 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
             Volt::route("equipements", "backoffice.homologation.equipements.index")->name("equipements");
             Volt::route("equipements/ajouter", "backoffice.homologation.equipements.create")->name("equipements.ajouter");
             Volt::route("equipements/modifier/{id}", "backoffice.homologation.equipements.edit")->name("equipements.modifier");
+            Volt::route("equipements/informations/{id}", "backoffice.homologation.equipements.infos")->name("equipements.informations");
+
+            /* Demandeurs */
+            Volt::route("demandeurs", "backoffice.homologation.demandeurs.index")->name("demandeurs");
+            Volt::route("demandeurs/ajouter", "backoffice.homologation.demandeurs.create")->name("demandeurs.ajouter");
+            Volt::route("demandeurs/modifier/{id}", "backoffice.homologation.demandeurs.edit")->name("demandeurs.modifier");
+            Volt::route("demandeurs/informations/{id}", "backoffice.homologation.demandeurs.infos")->name("demandeurs.informations");
 
             /* Catégories */
             Volt::route("categories", "backoffice.homologation.categories.index")->name("categories");

@@ -1,5 +1,5 @@
 <div class="flex flex-col overflow-hidden rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100"
-    x-data="{ open: false, openDemandeurModal: false }">
+    x-data="{ open: false, openRepresentantModal: false }">
     <!-- Card -->
     <div
         class="flex flex-col gap-3 bg-gray-50 px-5 py-4 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-left dark:bg-gray-700/50">
@@ -18,21 +18,21 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </li>
-                    <li>Equipements</li>
+                    <li>Demandeurs</li>
                 </ol>
             </nav>
-            <h2 class="text-2xl font-bold">Tous les équipements</h2>
+            <h2 class="text-2xl font-bold">Tous les demandeurs</h2>
         </div>
         <div
             class="flex items-center justify-center gap-2 rounded-sm px-2 py-3 sm:justify-end sm:bg-transparent sm:px-0">
-            <a href="{{ route('backoffice.homologation.equipements.ajouter') }}"
+            <a href="{{ route('backoffice.homologation.demandeurs.ajouter') }}"
                 class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90"
                 wire:navigate>
                 <svg class=" inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
                 </svg>
-                <span>Ajouter un équipement</span>
+                <span>Ajouter un demandeur</span>
             </a>
         </div>
     </div>
@@ -57,79 +57,74 @@
                     placeholder="Rechercher..." />
             </div>
         </div>
-        <div
-            class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
-            <div class="min-w-full overflow-x-auto rounded-sm">
-                <table class="min-w-full align-middle text-sm whitespace-nowrap">
-                    <thead>
-                        <tr>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Désignation
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Modèle
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Catégorie
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Marque
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Certificat
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Demandeur
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Statut
-                            </th>
-                            <th
-                                class="group bg-gray-100/75 px-3 py-4 text-right font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
-                                Actions
-                            </th>
-                        </tr>
-                    </thead>
+    </div>
+    <div class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
+        <div class="min-w-full overflow-x-auto rounded-sm">
+            <table class="min-w-full align-middle text-sm whitespace-nowrap">
+                <thead>
+                    <tr>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>Nom complet</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>Adresse</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>Email</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>N° téléphone</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>Représentant</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <div class="inline-flex items-center gap-2">
+                                <span>Equipements</span>
+                            </div>
+                        </th>
+                        <th
+                            class="group bg-gray-100/75 px-3 py-4 text-right font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            <span>Actions</span>
+                        </th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        @forelse ($equipements as $equipement)
-                            <tr class="even:bg-gray-50 dark:even:bg-gray-900/50">
-                                <td class="p-3">
-                                    <p class="font-medium">{{ $equipement->designation }}</p>
-                                </td>
-                                <td class="p-3">
-                                    <p class="font-medium">{{ $equipement->modele }}</p>
-                                </td>
-                                <td class="p-3">
-                                    <p class="font-medium">{{ $equipement->categorie->name }}</p>
-                                </td>
-                                <td class="p-3">
-                                    <p class="font-medium">{{ $equipement->marque->name }}</p>
-                                </td>
-                                <td class="p-3">
-                                @if ($equipement->certificat)
-                                    <a href="{{ $equipement->certificat->document() }}" target="_blank"
-                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-100 px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-200 dark:bg-gray-200 dark:hover:border-gray-300 dark:hover:bg-gray-300 dark:focus:ring-gray-500/50 dark:active:border-gray-200 dark:active:bg-gray-200">
-                                        <svg class=" inline-block size-5 opacity-50"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <path
-                                                d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                @endif
-                                </td>
-                                <td class="p-3">
-                                    <button type="button" x-on:click="openDemandeurModal = true"
-                                        wire:click='selectEquipement({{ $equipement }})'
+                <tbdoy>
+                    @forelse ($demandeurs as $demandeur)
+                        <tr class="even:bg-gray-50 dark:even:bg-gray-900/50">
+                            <td class="p-3">
+                                <p class="font-medium">{{ $demandeur->nom_complet }}</p>
+                            </td>
+                            <td class="p-3">
+                                <p class="font-medium">{{ $demandeur->adresse }}</p>
+                            </td>
+                            <td class="p-3">
+                                <p class="font-medium">{{ $demandeur->email }}</p>
+                            </td>
+                            <td class="p-3">
+                                <p class="font-medium">{{ $demandeur->telephone }}</p>
+                            </td>
+                            <td class="p-3">
+                                @if ($demandeur->representant()->exists())
+                                    <button type="button" x-on:click="openRepresentantModal = true"
+                                        wire:click='selectDemandeur({{ $demandeur }})'
                                         class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-100 px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-200 dark:bg-gray-200 dark:hover:border-gray-300 dark:hover:bg-gray-300 dark:focus:ring-gray-500/50 dark:active:border-gray-200 dark:active:bg-gray-200">
                                         <svg class="inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24" fill="currentColor">
@@ -138,65 +133,59 @@
                                             </path>
                                         </svg>
                                     </button>
-                                </td>
-                                <td class="p-3">
-                                    @if (trim($equipement->statut) === $statut_choices[0])
-                                        <div
-                                            class="inline-flex rounded-sm bg-green-100 px-2 py-1 text-sm leading-4 font-semibold text-green-600">
-                                            {{ $equipement->statut }}
-                                        </div>
-                                    @endif
-
-                                    @if (trim($equipement->statut) === $statut_choices[1])
-                                        <div
-                                            class="inline-flex rounded-sm bg-red-100 px-2 py-1 text-sm leading-4 font-semibold text-red-600">
-                                            {{ $equipement->statut }}
-                                        </div>
-                                    @endif
-
-                                    @if (trim($equipement->statut) === $statut_choices[2])
-                                        <div
-                                            class="inline-flex rounded-sm bg-yellow-100 px-2 py-1 text-sm leading-4 font-semibold text-yellow-600">
-                                            {{ $equipement->statut }}
-                                        </div>
-                                    @endif
-                                </td>
-                                <td class="py-3 pl-3 text-right">
-                                    <div class="inline-flex items-center gap-1">
-                                        <a href="{{ route('backoffice.homologation.equipements.informations', $equipement->id) }}"
-                                            class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
-                                            wire:navigate>
-                                            Voir
-                                        </a>
-                                        <button type="button" x-on:click="open = true"
-                                            wire:click='selectEquipement({{ $equipement }})'
-                                            class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700">
-                                            Supprimer
-                                        </button>
+                                @endif
+                            </td>
+                            <td class="p-3 inline-flex gap-2">
+                                @if ($demandeur->equipements()->exists())
+                                    <a href="{{ route('backoffice.homologation.demandeurs.informations', $demandeur->id) }}"
+                                        wire:navigate
+                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-100 px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-200 dark:bg-gray-200 dark:hover:border-gray-300 dark:hover:bg-gray-300 dark:focus:ring-gray-500/50 dark:active:border-gray-200 dark:active:bg-gray-200">
+                                        <svg class="inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                    <div class="inline-flex rounded-lg bg-green-100 px-2 py-1 text-sm leading-4 font-semibold text-green-600">
+                                        {{ count($demandeur->equipements) }}
                                     </div>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td class="text-red-500 font-medium text-center p-2" colspan="8">
-                                    Rien à afficher
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+                                @endif
+                            </td>
+                            <td class="py-3 pl-3 text-right">
+                                <div class="inline-flex items-center gap-1">
+                                    <a href="{{ route('backoffice.homologation.demandeurs.modifier', $demandeur->id) }}"
+                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
+                                        wire:navigate>
+                                        Modifier
+                                    </a>
+                                    <button type="button" x-on:click="open = true"
+                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700">
+                                        Supprimer
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td class="text-red-500 font-medium text-center p-2" colspan="8">
+                                Rien à afficher
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbdoy>
+            </table>
         </div>
     </div>
 
-    <!-- Modal Demandeur informations -->
-    <div x-cloak x-show="openDemandeurModal" x-transition:enter="transition ease-out duration-200"
+    <!-- Modal Representant informations -->
+    <div x-cloak x-show="openRepresentantModal" x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0" x-bind:aria-hidden="!openDemandeurModal" tabindex="-1" role="dialog"
+        x-transition:leave-end="opacity-0" x-bind:aria-hidden="!openRepresentantModal" tabindex="-1" role="dialog"
         class="fixed inset-0 z-90 overflow-x-hidden overflow-y-auto bg-gray-900/75 p-4 backdrop-blur-xs lg:p-8">
         <!-- Modal Dialog -->
-        <div x-cloak x-show="openDemandeurModal" x-transition:enter="transition ease-out duration-200"
+        <div x-cloak x-show="openRepresentantModal" x-transition:enter="transition ease-out duration-200"
             x-transition:enter-start="opacity-0 scale-125" x-transition:enter-end="opacity-100 scale-100"
             x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
             x-transition:leave-end="opacity-0 scale-125" role="document"
@@ -209,10 +198,10 @@
                             d="M11 14.0619V20H13V14.0619C16.9463 14.554 20 17.9204 20 22H4C4 17.9204 7.05369 14.554 11 14.0619ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z">
                         </path>
                     </svg>
-                    <span>Identifications du demandeur</span>
+                    <span>Identifications du représentant</span>
                 </h3>
                 <div class="-my-4">
-                    <button x-on:click="openDemandeurModal = false" type="button"
+                    <button x-on:click="openRepresentantModal = false" type="button"
                         class="inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
                         <svg class="hi-solid hi-x -mx-1 inline-block size-4" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -228,61 +217,31 @@
                     <div class="flex justify-between gap-2">
                         <span class="text-gray-600 dark:text-gray-400">Nom complet:</span>
                         <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                            {{ $this->selected ? $this->selected->demandeur->nom_complet : '' }}
+                            {{ $this->selected ? $this->selected->representant->nom_complet : '' }}
                         </span>
                     </div>
                     <div class="flex justify-between gap-2">
                         <span class="text-gray-600 dark:text-gray-400">Adresse:</span>
                         <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                            {{ $this->selected ? $this->selected->demandeur->adresse : '' }}
+                            {{ $this->selected ? $this->selected->representant->adresse : '' }}
                         </span>
                     </div>
                     <div class="flex justify-between gap-2">
                         <span class="text-gray-600 dark:text-gray-400">Email:</span>
                         <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                            {{ $this->selected ? $this->selected->demandeur->email : '' }}
+                            {{ $this->selected ? $this->selected->representant->email : '' }}
                         </span>
                     </div>
                     <div class="flex justify-between gap-2">
                         <span class="text-gray-600 dark:text-gray-400">N° téléphone:</span>
                         <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                            {{ $this->selected ? $this->selected->demandeur->telephone : '' }}
+                            {{ $this->selected ? $this->selected->representant->telephone : '' }}
                         </span>
                     </div>
-                    @if ($this->selected?->demandeur->representant()->exists())
-                        <span
-                            class="inline-flex items-center justify-center gap-1 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
-                            <span>Identifications du représentant</span>
-                        </span>
-                        <div class="flex justify-between gap-2">
-                            <span class="text-gray-600 dark:text-gray-400">Nom complet:</span>
-                            <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                                {{ $this->selected->demandeur->representant->nom_complet }}
-                            </span>
-                        </div>
-                        <div class="flex justify-between gap-2">
-                            <span class="text-gray-600 dark:text-gray-400">Adresse:</span>
-                            <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                                {{ $this->selected->demandeur->representant->adresse }}
-                            </span>
-                        </div>
-                        <div class="flex justify-between gap-2">
-                            <span class="text-gray-600 dark:text-gray-400">Email:</span>
-                            <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                                {{ $this->selected->demandeur->representant->email }}
-                            </span>
-                        </div>
-                        <div class="flex justify-between gap-2">
-                            <span class="text-gray-600 dark:text-gray-400">N° téléphone:</span>
-                            <span class="text-right font-medium text-gray-900 dark:text-gray-100">
-                                {{ $this->selected->demandeur->representant->telephone }}
-                            </span>
-                        </div>
-                    @endif
                 </div>
             </div>
             <div class="space-x-1 bg-gray-50 px-5 py-4 text-right dark:bg-gray-700/50">
-                <button type="button" x-on:click="openDemandeurModal = false"
+                <button x-on:click="openRepresentantModal = false" type="button"
                     class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
                     Fermer
                 </button>
@@ -316,7 +275,7 @@
                 <div>
                     <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Êtes-vous sûr de vouloir supprimer cet équipement ?
+                        Êtes-vous sûr de vouloir supprimer ce demandeur ?
                     </p>
                 </div>
             </div>
@@ -336,7 +295,7 @@
 
     <!-- Pagination -->
     <div class="grow border-t border-gray-200 px-5 py-4 dark:border-gray-700">
-        {{ $equipements->links() }}
+        {{ $demandeurs->links() }}
     </div>
 
 </div>
