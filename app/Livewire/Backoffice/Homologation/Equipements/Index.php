@@ -5,6 +5,8 @@ namespace App\Livewire\Backoffice\Homologation\Equipements;
 use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\Equipement;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
@@ -20,7 +22,23 @@ class Index extends Component
 
     public function deleteEquipement()
     {
+        DB::transaction(function () {
+            foreach ($this->selected->photos as $photo) {
+                Storage::delete($photo->url);
+                $photo->delete();
+            }
 
+            if ($this->selected->certificat) {
+                if ($this->selected->certificat->document) {
+                    Storage::delete($this->selected->certificat->document);
+                }
+                $this->selected->certificat->delete();
+            }
+
+            $this->selected->delete();
+        });
+
+        return $this->redirect(route("backoffice.homologation.equipements"), navigate: true);
     }
 
     public $statut_choices = [
