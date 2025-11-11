@@ -19,26 +19,28 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Route::post("articles/ajouter", [App\Http\Controllers\Admin\ArticleController::class, "store"])->name("articles.store");
         Route::get("articles/modifier/{id}", [App\Http\Controllers\Admin\ArticleController::class, "edit"])->name("articles.edit");
         Route::post("articles/modifier/{id}", [App\Http\Controllers\Admin\ArticleController::class, "update"])->name("articles.update");
-
         /* Evènements */
         Volt::route("evenements", "backoffice.gestion.evenements.index")->name("evenements");
-
         /* Communiques */
         Volt::route("communiques", "backoffice.gestion.communiques.index")->name("communiques");
         Route::get("communiques/ajouter", [App\Http\Controllers\Admin\CommuniqueController::class, "create"])->name("communiques.create");
         Route::post("communiques/ajouter", [App\Http\Controllers\Admin\CommuniqueController::class, "store"])->name("communiques.store");
         Route::get("communiques/modifier/{id}", [App\Http\Controllers\Admin\CommuniqueController::class, "edit"])->name("communiques.edit");
         Route::post("communiques/modifier/{id}", [App\Http\Controllers\Admin\CommuniqueController::class, "update"])->name("communiques.update");
-
         /* Partenaires */
         Volt::route("partenaires", "backoffice.gestion.partenaires.index")->name("partenaires");
         Volt::route("partenaires/ajouter", "backoffice.gestion.partenaires.create")->name("partenaires.ajouter");
         Volt::route("partenaires/modifier/{id}", "backoffice.gestion.partenaires.edit")->name("partenaires.modifier");
-
         /* Opérateurs */
         Volt::route("operateurs", "backoffice.gestion.operateurs.index")->name("operateurs");
         Volt::route("operateurs/ajouter", "backoffice.gestion.operateurs.create")->name("operateurs.ajouter");
         Volt::route("operateurs/modifier/{id}", "backoffice.gestion.operateurs.edit")->name("operateurs.modifier");
+
+        // Informations
+        /* Chiffres du secteur */
+        Volt::route("chiffres-secteur", "backoffice.informations.chiffres-secteur.index")->name("chiffres-secteur");
+        Volt::route("chiffres-secteur/ajouter", "backoffice.informations.chiffres-secteur.create")->name("chiffres-secteur.ajouter");
+        Volt::route("chiffres-secteur/modifier/{id}", "backoffice.informations.chiffres-secteur.edit")->name("chiffres-secteur.modifier");
 
         // Textes
         /* Avis & décisions */

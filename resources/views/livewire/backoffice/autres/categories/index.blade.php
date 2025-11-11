@@ -74,16 +74,6 @@
                                 class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
                                 <div class="inline-flex items-center gap-2">
                                     <span>Statut</span>
-                                    <button type="button"
-                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-1.5 py-1 text-sm leading-5 font-semibold text-gray-800 opacity-25 transition group-hover:opacity-100 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
-                                        <svg class="hi-mini hi-chevron-up-down inline-block size-4"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                            aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
                                 </div>
                             </th>
                             <th
