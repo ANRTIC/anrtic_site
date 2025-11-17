@@ -45,6 +45,12 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Volt::route("flashinfos", "backoffice.informations.flash-infos.index")->name("flashinfos");
         Volt::route("flashinfos/ajouter", "backoffice.informations.flash-infos.create")->name("flashinfos.ajouter");
         Volt::route("flashinfos/modifier/{id}", "backoffice.informations.flash-infos.edit")->name("flashinfos.modifier");
+        /* Appel d'offres */
+        Volt::route("appel-offres", "backoffice.informations.appel-offres.index")->name("appeloffres");
+        Route::get("appel-offres/ajouter", [App\Http\Controllers\Admin\AppelOffresController::class, "create"])->name("appeloffres.create");
+        Route::post("appel-offres/ajouter", [App\Http\Controllers\Admin\AppelOffresController::class, "store"])->name("appeloffres.store");
+        Route::get("appel-offres/modifier/{id}", [App\Http\Controllers\Admin\AppelOffresController::class, "edit"])->name("appeloffres.edit");
+        Route::post("appel-offres/modifier/{id}", [App\Http\Controllers\Admin\AppelOffresController::class, "update"])->name("appeloffres.update");
 
         // Textes
         /* Avis & décisions */

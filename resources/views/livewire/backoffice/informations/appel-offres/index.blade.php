@@ -18,21 +18,20 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </li>
-                    <li>Flash infos</li>
+                    <li>Appels d'offres</li>
                 </ol>
             </nav>
-            <h2 class="text-2xl font-bold">Tous les flash infos</h2>
+            <h2 class="text-2xl font-bold">Tous les appels d'offres</h2>
         </div>
         <div
             class="flex items-center justify-center gap-2 rounded-sm px-2 py-3 sm:justify-end sm:bg-transparent sm:px-0">
-            <a href="{{ route('backoffice.flashinfos.ajouter') }}"
-                class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90"
-                wire:navigate>
+            <a href="{{ route('backoffice.appeloffres.create') }}"
+                class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90">
                 <svg class=" inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
                 </svg>
-                <span>Ajouter un flash infos</span>
+                <span>Ajouter un appel d'offres</span>
             </a>
         </div>
     </div>
@@ -65,6 +64,12 @@
                             Titre
                         </th>
                         <th class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            Description courte
+                        </th>
+                        <th class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                            Date limite
+                        </th>
+                        <th class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
                             Catégorie
                         </th>
                         <th class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
@@ -76,16 +81,22 @@
                 </thead>
 
                 <tbody>
-                    @forelse ($flashinfos as $flash)
+                    @forelse($appelsoffres as $appel)
                         <tr class="even:bg-gray-50 dark:even:bg-gray-900/50">
                             <td class="p-3">
-                                <p class="font-medium">{{ $flash->title }}</p>
+                                <p class="font-medium">{{ $appel->title }}</p>
                             </td>
                             <td class="p-3">
-                                <p class="font-medium">{{ $flash->categorie->name }}</p>
+                                <p class="font-medium">{{ $appel->short_description }}</p>
                             </td>
                             <td class="p-3">
-                                @if ($flash->is_online)
+                                <p class="font-medium">{{ $appel->deadline->format("d M Y") }}</p>
+                            </td>
+                            <td class="p-3">
+                                <p class="font-medium">{{ $appel->categorie?->name }}</p>
+                            </td>
+                            <td class="p-3">
+                                @if ($appel->is_online)
                                     <div
                                         class="inline-flex rounded-full border border-transparent bg-green-100 px-2 py-1 text-xs leading-4 font-semibold text-green-900 dark:border-green-900 dark:bg-green-700/10 dark:font-medium dark:text-green-200">
                                         Publié
@@ -99,20 +110,19 @@
                             </td>
                             <td class="py-3 pl-3 text-right">
                                 <div class="inline-flex items-center gap-1">
-                                    <a href="{{ route('backoffice.flashinfos.modifier', $flash->id) }}"
-                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
-                                        wire:navigate>
+                                    <a href="{{ route('backoffice.appeloffres.edit', $appel->id) }}"
+                                        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700">
                                         Modifier
                                     </a>
                                     <button type="button" x-on:click="open = true"
                                         class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
-                                        wire:click="selectFlashInfos({{ $flash }})">
+                                        wire:click="selectAppelOffres({{ $appel }})">
                                         Supprimer
                                     </button>
                                 </div>
                             </td>
                         </tr>
-                    @empty 
+                    @empty
                         <tr>
                             <td class="text-red-500 font-medium text-center p-2" colspan="4">
                                 Rien à afficher
@@ -149,7 +159,7 @@
                 <div>
                     <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Êtes-vous sûr de vouloir supprimer ce flash infos ?
+                        Êtes-vous sûr de vouloir supprimer cet appel d'offres ?
                     </p>
                 </div>
             </div>
@@ -158,7 +168,7 @@
                     class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
                     Annuler
                 </button>
-                <button x-on:click="open = false" type="button" wire:click="deleteFlashInfos"
+                <button x-on:click="open = false" type="button" wire:click="deleteAppelOffres"
                     class="inline-flex items-center justify-center gap-2 rounded-lg border border-rose-700 bg-rose-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-rose-600 hover:bg-rose-600 hover:text-white focus:ring-3 focus:ring-rose-400/50 active:border-rose-700 active:bg-rose-700 dark:focus:ring-rose-400/90">
                     Supprimer
                 </button>
@@ -168,7 +178,7 @@
 
     <!-- Pagination -->
     <div class="grow border-t border-gray-200 px-5 py-4 dark:border-gray-700">
-        {{ $flashinfos->links() }}
+        {{ $appelsoffres->links() }}
     </div>
 
 </div>

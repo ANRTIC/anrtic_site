@@ -86,6 +86,7 @@ return [
         public_path("/media/notes_service") => storage_path("app/public/media/notes_service"),
         public_path("/media/chiffres_secteurs") => storage_path("app/public/media/chiffres_secteurs"),
         public_path("/media/user_profiles") => storage_path("app/public/media/user_profiles"),
+        public_path("/media/appel_offres") => storage_path("app/public/media/appel_offres"),
 
         /* Homologation  */
         public_path("/media/photos_equipements") => storage_path("app/public/media/photos_equipements"),
