@@ -70,27 +70,7 @@
             <!-- Content Slider -->
             <div x-data="{
                 // Slides array
-                slides: [{
-                        label: '23,451 milliards KMF',
-                        sector: 'Chiffre d\'affaires du secteur des communications électroniques (CE)',
-                        source: '(en 2022)'
-                    },
-                    {
-                        label: '28%',
-                        sector: 'Taux de pénération de l\'internet aux Comores',
-                        source: '(en 2021)'
-                    },
-                    {
-                        label: '7%',
-                        sector: 'Contribution du secteur dans le PIB',
-                        source: '(en 2021)'
-                    },
-                    {
-                        label: '90%',
-                        sector: 'Taux de pénétration du mobile',
-                        source: '(en 2021)'
-                    },
-                ],
+                slides: @js($chiffres),
             
                 // Content Slider options
                 arrowsNavigation: false,
@@ -267,37 +247,6 @@
                             </div>
                         </template>
                     </div>
-                    <!-- END Slides -->
-
-                    <!-- Previous Button -->
-                    <button x-cloak x-show="arrowsNavigation && !(!loop && currentIndex === 0)"
-                        x-on:click="previous('button')" type="button"
-                        class="group absolute top-1/2 left-2.5 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 text-gray-500 backdrop-blur-xs transition duration-150 ease-out group-hover:opacity-100 hover:scale-110 hover:bg-gray-200 hover:text-gray-950 active:scale-100 active:bg-gray-100 sm:size-12 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-gray-50 dark:active:bg-gray-700"
-                        aria-label="Previous Slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="hi-mini hi-chevron-left inline-block size-5">
-                            <path fill-rule="evenodd"
-                                d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </button>
-                    <!-- END Previous Button -->
-
-                    <!-- Next Button -->
-                    <button x-cloak x-show="arrowsNavigation && !(!loop && currentIndex === slides.length - 1)"
-                        x-on:click="next('button')" type="button"
-                        class="group absolute top-1/2 right-2.5 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 text-gray-500 backdrop-blur-xs transition duration-150 ease-out group-hover:opacity-100 hover:scale-110 hover:bg-gray-200 hover:text-gray-950 active:scale-100 active:bg-gray-100 sm:size-12 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-gray-50 dark:active:bg-gray-700"
-                        aria-label="Next Slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="hi-mini hi-chevron-right inline-block size-5">
-                            <path fill-rule="evenodd"
-                                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </button>
-                    <!-- END Next Button -->
 
                     <!-- Progress Bar -->
                     <div x-cloak x-show="autoplayProgressBar"
@@ -331,7 +280,6 @@
                 </div>
                 <!-- END Dots Navigation -->
             </div>
-            <!-- END Content Slider -->
         </div>
     </div>
 

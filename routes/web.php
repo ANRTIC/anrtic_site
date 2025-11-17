@@ -5,14 +5,13 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 
-Route::middleware('guest')->group(function () { 
+Route::get("/", App\Livewire\Public\Index::class)->name("home");
 
-    Route::get("/", App\Livewire\Public\Index::class)->name("home");
-});
-
+/*
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+*/
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
