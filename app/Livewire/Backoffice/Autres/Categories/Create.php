@@ -2,11 +2,9 @@
 
 namespace App\Livewire\Backoffice\Autres\Categories;
 
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use App\Models\Categorie;
 
-#[Layout('livewire.layouts.backoffice')] 
 class Create extends Component
 {
     public $name = "";
@@ -30,6 +28,7 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.backoffice.autres.categories.create');
+        return view('livewire.backoffice.autres.categories.create')
+            ->extends('livewire.layouts.backoffice');
     }
 }

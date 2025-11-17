@@ -9,7 +9,7 @@ use App\Models\ChiffresSecteur;
 class Index extends Component
 {
     public $search = "";
-    public $perPage;
+    public $perPage = 6;
     public $selected;
 
     public function selectChiffre(ChiffresSecteur $chiffre)

@@ -3,12 +3,10 @@
 namespace App\Livewire\Backoffice\Gestion\Operateurs;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Operateur;
 
-#[Layout('livewire.layouts.backoffice')]
 class Index extends Component
 {
     use WithPagination;
@@ -41,6 +39,6 @@ class Index extends Component
 
         return view('livewire.backoffice.gestion.operateurs.index', [
             "operateurs" => $operateurs
-        ]);
+        ])->extends('livewire.layouts.backoffice');
     }
 }

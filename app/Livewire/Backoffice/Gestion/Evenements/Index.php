@@ -2,11 +2,9 @@
 
 namespace App\Livewire\Backoffice\Gestion\Evenements;
 
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use App\Models\Evenement;
 
-#[Layout('livewire.layouts.backoffice')] 
 class Index extends Component
 {
     public $title;
@@ -41,6 +39,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.backoffice.gestion.evenements.index');
+        return view('livewire.backoffice.gestion.evenements.index')
+            ->extends('livewire.layouts.backoffice');
     }
 }

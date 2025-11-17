@@ -41,6 +41,10 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Volt::route("chiffres-secteur", "backoffice.informations.chiffres-secteur.index")->name("chiffres-secteur");
         Volt::route("chiffres-secteur/ajouter", "backoffice.informations.chiffres-secteur.create")->name("chiffres-secteur.ajouter");
         Volt::route("chiffres-secteur/modifier/{id}", "backoffice.informations.chiffres-secteur.edit")->name("chiffres-secteur.modifier");
+        /* Flash infos */
+        Volt::route("flashinfos", "backoffice.informations.flash-infos.index")->name("flashinfos");
+        Volt::route("flashinfos/ajouter", "backoffice.informations.flash-infos.create")->name("flashinfos.ajouter");
+        Volt::route("flashinfos/modifier/{id}", "backoffice.informations.flash-infos.edit")->name("flashinfos.modifier");
 
         // Textes
         /* Avis & décisions */

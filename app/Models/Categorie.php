@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\FlashInfos;
 
 class Categorie extends Model
 {
@@ -20,5 +21,10 @@ class Categorie extends Model
         static::addGlobalScope('ordered', function ($builder) {
             $builder->orderBy('name');
         });
+    }
+
+    public function flashinfos()
+    {
+        return $this->hasMany(FlashInfos::class);
     }
 }

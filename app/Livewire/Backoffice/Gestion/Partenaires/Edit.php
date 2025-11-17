@@ -2,14 +2,12 @@
 
 namespace App\Livewire\Backoffice\Gestion\Partenaires;
 
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use App\Models\Partenaire;
 use Illuminate\Support\Facades\Storage;
 
-#[Layout('livewire.layouts.backoffice')]
 class Edit extends Component
 {
     use WithFileUploads;
@@ -64,6 +62,7 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.backoffice.gestion.partenaires.edit');
+        return view('livewire.backoffice.gestion.partenaires.edit')
+            ->extends('livewire.layouts.backoffice');
     }
 }

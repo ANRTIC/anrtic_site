@@ -3,13 +3,11 @@
 namespace App\Livewire\Backoffice\Gestion\Operateurs;
 
 use Livewire\Component;
-use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Operateur;
 
-#[Layout('livewire.layouts.backoffice')]
 class Edit extends Component
 {
     use WithFileUploads;
@@ -64,6 +62,7 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.backoffice.gestion.operateurs.edit');
+        return view('livewire.backoffice.gestion.operateurs.edit')
+            ->extends('livewire.layouts.backoffice');
     }
 }

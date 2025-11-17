@@ -3,12 +3,10 @@
 namespace App\Livewire\Backoffice\Gestion\Partenaires;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Partenaire;
 
-#[Layout('livewire.layouts.backoffice')]
 class Index extends Component
 {
     use WithPagination;
@@ -41,6 +39,6 @@ class Index extends Component
 
         return view('livewire.backoffice.gestion.partenaires.index', [
             "partenaires" => $partenaires
-        ]);
+        ])->extends('livewire.layouts.backoffice');
     }
 }

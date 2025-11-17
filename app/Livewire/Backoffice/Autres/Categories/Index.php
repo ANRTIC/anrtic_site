@@ -3,12 +3,9 @@
 namespace App\Livewire\Backoffice\Autres\Categories;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use App\Models\Categorie;
 
-
-#[Layout('livewire.layouts.backoffice')] 
 class Index extends Component
 {
     use WithPagination;
@@ -40,6 +37,6 @@ class Index extends Component
 
         return view('livewire.backoffice.autres.categories.index', [
             "categories" => $categories
-        ]);
+        ])->extends('livewire.layouts.backoffice');
     }
 }
