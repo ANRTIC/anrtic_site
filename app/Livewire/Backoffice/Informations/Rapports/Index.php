@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire\Backoffice\Informations\AppelOffres;
+namespace App\Livewire\Backoffice\Informations\Rapports;
 
 use Livewire\Component;
-use App\Models\AppelOffres;
+use App\Models\Rapport;
 use Illuminate\Support\Facades\Storage;
 
 class Index extends Component
@@ -12,12 +12,12 @@ class Index extends Component
     public $search = "";
     public $perPage = 6;
 
-    public function selectAppelOffres(AppelOffres $appel)
+    public function selectRapport(Rapport $rapport)
     {
-        $this->selected = $appel;
+        $this->selected = $rapport;
     }
 
-    public function deleteAppelOffres()
+    public function deleteRapport()
     {
         if ($this->selected) {
             if ($this->selected->thumbnail) {
@@ -25,7 +25,7 @@ class Index extends Component
             }
             $this->selected->delete();
 
-            return $this->redirect(route("backoffice.appeloffres"), navigate: true);
+            return $this->redirect(route("backoffice.rapports"), navigate: true);
         }
 
         return;
@@ -33,8 +33,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.backoffice.informations.appel-offres.index', [
-            "appelsoffres" => AppelOffres::paginate($this->perPage)
+        return view('livewire.backoffice.informations.rapports.index', [
+            "rapports" => Rapport::paginate($this->perPage)
         ])->extends('livewire.layouts.backoffice');
     }
 }

@@ -51,6 +51,12 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Route::post("appel-offres/ajouter", [App\Http\Controllers\Admin\AppelOffresController::class, "store"])->name("appeloffres.store");
         Route::get("appel-offres/modifier/{id}", [App\Http\Controllers\Admin\AppelOffresController::class, "edit"])->name("appeloffres.edit");
         Route::post("appel-offres/modifier/{id}", [App\Http\Controllers\Admin\AppelOffresController::class, "update"])->name("appeloffres.update");
+        /* Rapports */
+        Volt::route("rapports", "backoffice.informations.rapports.index")->name("rapports");
+        Route::get("rapports/ajouter", [App\Http\Controllers\Admin\RapportController::class, "create"])->name("rapports.create");
+        Route::post("rapports/ajouter", [App\Http\Controllers\Admin\RapportController::class, "store"])->name("rapports.store");
+        Route::get("rapports/modifier/{id}", [App\Http\Controllers\Admin\RapportController::class, "edit"])->name("rapports.edit");
+        Route::post("rapports/modifier/{id}", [App\Http\Controllers\Admin\RapportController::class, "update"])->name("rapports.update");
 
         // Textes
         /* Avis & décisions */
