@@ -57,6 +57,12 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Route::post("rapports/ajouter", [App\Http\Controllers\Admin\RapportController::class, "store"])->name("rapports.store");
         Route::get("rapports/modifier/{id}", [App\Http\Controllers\Admin\RapportController::class, "edit"])->name("rapports.edit");
         Route::post("rapports/modifier/{id}", [App\Http\Controllers\Admin\RapportController::class, "update"])->name("rapports.update");
+        /* Etudes & enquêtes */
+        Volt::route("/etudes-enquetes", "backoffice.informations.etudes-enquetes.index")->name("etudes-enquetes");
+        Route::get("/etudes-enquetes/ajouter", [App\Http\Controllers\Admin\EtudeEnqueteController::class, "create"])->name("etudes-enquetes.create");
+        Route::post("/etudes-enquetes/ajouter", [App\Http\Controllers\Admin\EtudeEnqueteController::class, "store"])->name("etudes-enquetes.store");
+        Route::get("/etudes-enquetes/modifier/{id}", [App\Http\Controllers\Admin\EtudeEnqueteController::class, "edit"])->name("etudes-enquetes.edit");
+        Route::post("/etudes-enquetes/modifier/{id}", [App\Http\Controllers\Admin\EtudeEnqueteController::class, "update"])->name("etudes-enquetes.update");
 
         // Textes
         /* Avis & décisions */
