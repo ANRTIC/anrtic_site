@@ -302,6 +302,7 @@
                 <div class="flex flex-col rounded-lg lg:col-span-4 lg:flex-row">
                     <div class="lg:w-8/12">
                         <a href="#"
+                            target="__blank"
                             class="group relative flex aspect-16/9 w-full items-center justify-center overflow-hidden rounded-lg bg-yellow-200">
                             <div
                                 class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -326,6 +327,7 @@
                         </p>
                         <h3 class="mb-2 text-lg font-bold sm:text-xl">
                             <a href="#"
+                                target="__blank"
                                 class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                                 {{ $articles[0]->short_description }}
                             </a>
@@ -337,6 +339,7 @@
                 </div>
                 <div class="flex flex-col lg:col-span-2">
                     <a href="#"
+                        target="__blank"
                         class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-green-200">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -358,6 +361,7 @@
                     </p>
                     <h3 class="mb-2 text-lg font-bold sm:text-xl">
                         <a href="#"
+                            target="__blank"
                             class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                             {{ $articles[1]->title }}
                         </a>
@@ -368,6 +372,7 @@
                 </div>
                 <div class="flex flex-col lg:col-span-2">
                     <a href="#"
+                        target="__blank"
                         class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-orange-200">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -389,6 +394,7 @@
                     </p>
                     <h3 class="mb-2 text-lg font-bold sm:text-xl">
                         <a href="#"
+                            target="__blank"
                             class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                             {{ $articles[2]->title }}
                         </a>
@@ -404,7 +410,6 @@
     <!-- Nos vidéos -->
     <div class="bg-white dark:bg-gray-900 dark:text-gray-100">
         <div class="container mx-auto space-y-16 px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
-            <!-- Heading -->
             <div class="text-center">
                 <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
                     Nos vidéos
@@ -416,55 +421,26 @@
                 </p>
             </div>
 
+            <!-- Vidéos -->
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
-                <a href="#" class="group relative block">
-                    <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
-                    </div>
-                    <div class="relative">
-                        <img src="https://cdn.tailkit.com/media/placeholders/photo-73F4pKoUkM0-800x600.jpg"
-                            alt="Featured Image of blog post 1" class="aspect-4/3 w-full rounded-sm object-cover" />
-                        <p class="mt-3 mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <span class="font-medium">Sep 30, 2023</span>
-                        </p>
-                        <h3 class="mb-2 text-lg leading-6 font-bold text-gray-800 dark:text-gray-200">
-                            Allocution du directeur général pour la journée modiale
-                            des Télécommunications et lancement de la semaine du numérique
-                        </h3>
-                    </div>
-                </a>
-                <a href="#" class="group relative block">
-                    <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
-                    </div>
-                    <div class="relative">
-                        <img src="https://cdn.tailkit.com/media/placeholders/photo-phIFdC6lA4E-800x600.jpg"
-                            alt="Featured Image of blog post 2" class="aspect-4/3 w-full rounded-sm object-cover" />
-                        <p class="mt-3 mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <span class="font-medium">Sep 25, 2023</span>
-                        </p>
-                        <h3 class="mb-2 text-lg leading-6 font-bold text-gray-800 dark:text-gray-200">
-                            Le directeur général s'explique
-                        </h3>
-                    </div>
-                </a>
-                <a href="#" class="group relative block">
-                    <div
-                        class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
-                    </div>
-                    <div class="relative">
-                        <img src="https://cdn.tailkit.com/media/placeholders/photo-T7K4aEPoGGk-800x600.jpg"
-                            alt="Featured Image of blog post 3" class="aspect-4/3 w-full rounded-sm object-cover" />
-                        <p class="mt-3 mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            <span class="font-medium">Sep 22, 2023</span>
-                        </p>
-                        <h3 class="mb-2 text-lg leading-6 font-bold text-gray-800 dark:text-gray-200">
-                            Convention de partenariat entre l'ARTP et l'ANRTIC
-                        </h3>
-                    </div>
-                </a>
+                @foreach ($videos as $video)
+                    <a href="{{ $video->link }}" target="__blank" class="group relative block">
+                        <div
+                            class="absolute inset-0 scale-0 rounded-sm bg-gray-100 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-green-100 dark:bg-gray-800 dark:group-active:bg-green-600/25">
+                        </div>
+                        <div class="relative">
+                            <video class="h-full w-full rounded-lg" controls>
+                                <source
+                                    src="{{ $video->link }}"
+                                />
+                            </video>
+                            <h3 class="mb-2 text-lg leading-6 font-bold text-gray-800 dark:text-gray-200">
+                                {{ Str::limit($video->title, 130) }}
+                            </h3>
+                        </div>
+                    </a>
+                @endforeach
             </div>
-            <!-- END Latest Posts -->
         </div>
     </div>
 
@@ -505,9 +481,7 @@
 
     <!-- Alerter ANRTIC -->
     <div class="bg-cover"
-        style="
-    background-image: url(&quot;https://cdn.tailkit.com/media/placeholders/photo-wpU4veNGnHg-1280x800.jpg&quot;);
-  ">
+        style="background-image: url(&quot;https://cdn.tailkit.com/media/placeholders/photo-wpU4veNGnHg-1280x800.jpg&quot;);">
         <div class="bg-green-900/95">
             <div class="container mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
                 <div class="flex flex-col gap-16 lg:flex-row lg:items-center">
