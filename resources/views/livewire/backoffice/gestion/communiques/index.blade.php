@@ -114,6 +114,8 @@
                 </div>
             </div>
         @empty
+    </div>
+    <div class="grid grid-cols-1">
             <div class="relative px-6 w-full py-20 md:py-40 dark:border-gray-700">
                 <div class="relative flex flex-col gap-5 text-center">
                     <div class="relative inline-flex items-center justify-center">

@@ -16,21 +16,21 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </li>
-                    <li>Catégories</li>
+                    <li>Vidéos</li>
                 </ol>
             </nav>
-            <h2 class="text-2xl font-bold">Toutes les catégories</h2>
+            <h2 class="text-2xl font-bold">Toutes les vidéos</h2>
         </div>
         <div
             class="flex items-center justify-center gap-2 rounded-sm px-2 py-3 sm:justify-end sm:bg-transparent sm:px-0">
-            <a href="{{ route('backoffice.categories.ajouter') }}"
+            <a href="{{ route('backoffice.videos.ajouter') }}"
                 class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-4 py-2 leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90"
                 wire:navigate>
                 <svg class=" inline-block size-5 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
                 </svg>
-                <span>Ajouter une catégorie</span>
+                <span>Ajouter une vidéo</span>
             </a>
         </div>
     </div>
@@ -54,7 +54,8 @@
                     placeholder="Rechercher..." />
             </div>
         </div>
-        <div class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
+        <div
+            class="grow rounded-lg bg-white p-4 text-sm shadow-xs shadow-gray-300/25 dark:bg-gray-900 dark:shadow-none">
             <div class="min-w-full overflow-x-auto rounded-sm">
                 <table class="min-w-full align-middle text-sm whitespace-nowrap">
                     <thead>
@@ -62,7 +63,13 @@
                             <th
                                 class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
                                 <div class="inline-flex items-center gap-2">
-                                    <span>Nom</span>
+                                    <span>Titre</span>
+                                </div>
+                            </th>
+                            <th
+                                class="group bg-gray-100/75 px-3 py-4 text-left font-semibold text-gray-900 dark:bg-gray-700/25 dark:text-gray-50">
+                                <div class="inline-flex items-center gap-2">
+                                    <span>Lien</span>
                                 </div>
                             </th>
                             <th
@@ -79,27 +86,42 @@
                     </thead>
 
                     <tbody>
-                        @forelse ($categories as $categorie)
+                        @forelse ($videos as $video)
                             <tr class="even:bg-gray-50 dark:even:bg-gray-900/50">
                                 <td class="p-3">
-                                    <p class="font-medium">{{ $categorie->name }}</p>
+                                    <p class="font-medium">{{ $video->title }}</p>
                                 </td>
                                 <td class="p-3">
-                                    @if ($categorie->is_active)
-                                        <div
-                                            class="inline-flex rounded-full border border-transparent bg-green-100 px-2 py-1 text-xs leading-4 font-semibold text-green-900 dark:border-green-900 dark:bg-green-700/10 dark:font-medium dark:text-green-200">
-                                            Actif
+                                    <a
+                                        href="{{ $video->link }}"
+                                        target="_blank"
+                                        class="inline-flex items-center justify-center px-2 py-1 text-bold text-emerald-600 hover:text-emerald-500 cursor-pointer"
+                                    >
+                                        <svg 
+                                            class="inline-block size-4"
+                                            xmlns="http://www.w3.org/2000/svg" 
+                                            viewBox="0 0 24 24" 
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td class="p-3">
+                                    @if ($video->is_online)
+                                        <div class="inline-flex rounded-full border border-transparent bg-green-100 px-2 py-1 text-xs leading-4 font-semibold text-green-900 dark:border-green-900 dark:bg-green-700/10 dark:font-medium dark:text-green-200">
+                                            Publiée
                                         </div>
                                     @else
-                                        <div
-                                            class="inline-flex rounded-full border border-transparent bg-orange-100 px-2 py-1 text-xs leading-4 font-semibold text-orange-900 dark:border-orange-900/75 dark:bg-orange-700/10 dark:font-medium dark:text-orange-200">
-                                            Inactif
+                                        <div class="inline-flex rounded-full border border-transparent bg-orange-100 px-2 py-1 text-xs leading-4 font-semibold text-orange-900 dark:border-orange-900/75 dark:bg-orange-700/10 dark:font-medium dark:text-orange-200">
+                                            Non publiée
                                         </div>
                                     @endif
                                 </td>
                                 <td class="py-3 pl-3 text-right">
                                     <div class="inline-flex items-center gap-1">
-                                        <a href="{{ route('backoffice.categories.modifier', $categorie->id) }}"
+                                        <a href="{{ route('backoffice.videos.modifier', $video->id) }}"
                                             class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm leading-5 font-semibold text-gray-800 hover:bg-gray-600 hover:border-gray-300 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
                                             wire:navigate>
                                             Modifier
@@ -107,7 +129,7 @@
                                         <button type="button"
                                             x-on:click="open = true"
                                             class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-500 px-2 py-1 text-sm leading-5 font-semibold text-white hover:bg-red-600 hover:border-red-400 hover:text-white hover:shadow-xs dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:active:border-gray-700"
-                                            wire:click="selectCategory({{ $categorie }})">
+                                            wire:click="selectVideo({{ $video }})">
                                             Supprimer
                                         </button>
                                     </div>
@@ -127,54 +149,6 @@
                 </table>
             </div>
         </div>
-    </div>
-
-    <!-- Modal -->
-    <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0" x-bind:aria-hidden="!open" tabindex="-1" role="dialog"
-        class="fixed inset-0 z-90 overflow-x-hidden overflow-y-auto bg-gray-900/75 p-4 backdrop-blur-xs lg:p-8">
-        <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 scale-125" x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-125" role="document"
-            class="mx-auto flex w-full max-w-md flex-col overflow-hidden rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100">
-            <div class="flex grow gap-5 px-5 py-7">
-                <div
-                    class="flex size-14 flex-none items-center justify-center rounded-full bg-rose-100 text-rose-500 dark:bg-rose-700/50 dark:text-rose-300">
-                    <svg class="hi-outline hi-shield-exclamation inline-block size-6" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
-                    </svg>
-                </div>
-                <div>
-                    <h4 class="mb-1 text-lg font-bold">Confirmation</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Êtes-vous sûr de vouloir supprimer cette catégorie ?
-                    </p>
-                </div>
-            </div>
-            <div class="space-x-1 bg-gray-50 px-5 py-4 text-right dark:bg-gray-700/50">
-                <button x-on:click="open = false" type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm leading-5 font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
-                    Annuler
-                </button>
-                <button x-on:click="open = false" 
-                    type="button"
-                    wire:click="deleteCategory"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-rose-700 bg-rose-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-rose-600 hover:bg-rose-600 hover:text-white focus:ring-3 focus:ring-rose-400/50 active:border-rose-700 active:bg-rose-700 dark:focus:ring-rose-400/90">
-                    Supprimer
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pagination -->
-    <div class="grow border-t border-gray-200 px-5 py-4 dark:border-gray-700">
-        {{ $categories->links() }}
     </div>
 
 </div>

@@ -33,7 +33,7 @@ class Index extends Component
     {
         $etudes_enquetes = $this->search ?
                     EtudeEnquete::where("title", "like",  "%". $this->search ."%")
-                        ->orWhere("short_description", "like", "%". $this->search ."%")
+                        ->orWhere("short_description", "like", "%". $this->search ."%")->paginate($this->perPage)
                     : EtudeEnquete::paginate($this->perPage);
 
         return view('livewire.backoffice.informations.etudes-enquetes.index', [

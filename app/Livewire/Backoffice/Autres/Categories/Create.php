@@ -13,12 +13,10 @@ class Create extends Component
     public function save()
     {
         $validatedData = $this->validate([
-            "name" => "required|string|min:3",
+            "name" => "required",
             "is_active" => "boolean"
         ], [
-            "name.required" => "Le nom est obligatoire",
-            "name.string" => "Le nom doit être une chaîne de caractères",
-            "name.min" => "Le nom doit contenir au moins 3 caractères"
+            "name.required" => "Le nom est obligatoire"
         ]);
 
         Categorie::create($validatedData);

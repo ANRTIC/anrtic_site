@@ -98,6 +98,10 @@ Route::middleware(["auth:sanctum", "verified", "checkBlocked"])->group(function(
         Volt::route("categories", "backoffice.autres.categories.index")->name("categories");
         Volt::route("categories/ajouter", "backoffice.autres.categories.create")->name("categories.ajouter");
         Volt::route("categories/modifier/{id}", "backoffice.autres.categories.edit")->name("categories.modifier");
+        /* Vidéos */
+        Volt::route("/videos", "backoffice.autres.videos.index")->name("videos");
+        Volt::route("/videos/ajouter", "backoffice.autres.videos.create")->name("videos.ajouter");
+        Volt::route("/videos/modifier/{id}", "backoffice.autres.videos.edit")->name("videos.modifier");
 
         // Homologation
         Route::group(["as" => "homologation.", "prefix" => "homologation"], function () {

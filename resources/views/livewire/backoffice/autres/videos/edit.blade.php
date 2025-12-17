@@ -15,10 +15,10 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </li>
-                    <li>Articles</li>
+                    <li>Vidéos</li>
                 </ol>
             </nav>
-            <h2 class="text-2xl font-bold">Ajouter une catégorie</h2>
+            <h2 class="text-2xl font-bold">Modifier une catégorie</h2>
         </div>
     </div>
 
@@ -27,20 +27,28 @@
         <div class="grow p-5 md:flex md:gap-5">
             <form class="space-y-6 w-full" wire:submit="save">
                 <div class="space-y-1">
-                    <label for="name" class="inline-block font-medium">Nom</label>
-                    <input type="text" wire:model="name" placeholder="Saisir le nom"
+                    <label for="name" class="inline-block font-medium">Titre</label>
+                    <input type="text" wire:model="title" placeholder="Saisir le titre"
                         class="block w-full rounded-lg border border-gray-200 px-3 py-2 leading-6 placeholder-gray-500 focus:border-green-500 focus:ring-3 focus:ring-green-500/50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-green-500" />
                     <p class="text-sm text-red-600 dark:text-red-400">
-                        @error('name') {{ $message }} @enderror
+                        @error('title') {{ $message }} @enderror
+                    </p>
+                </div>
+                <div class="space-y-1">
+                    <label for="name" class="inline-block font-medium">Lien</label>
+                    <input type="url" wire:model="link" placeholder="Saisir le lien"
+                        class="block w-full rounded-lg border border-gray-200 px-3 py-2 leading-6 placeholder-gray-500 focus:border-green-500 focus:ring-3 focus:ring-green-500/50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-green-500" />
+                    <p class="text-sm text-red-600 dark:text-red-400">
+                        @error('link') {{ $message }} @enderror
                     </p>
                 </div>
                 <div class="space-y-1">
                     <label class="group relative inline-flex items-center gap-3">
-                        <input type="checkbox" wire:model="is_active" class="peer sr-only"/>
+                        <input type="checkbox" wire:model="is_online" class="peer sr-only"/>
                         <span
                           class="relative h-7 w-12 flex-none rounded-full bg-gray-300 transition-all duration-150 ease-out peer-checked:bg-green-500 peer-focus:ring-3 peer-focus:ring-green-500/50 peer-focus:ring-offset-2 peer-focus:ring-offset-white peer-disabled:cursor-not-allowed peer-disabled:opacity-75 before:absolute before:top-1 before:left-1 before:size-5 before:rounded-full before:bg-white before:transition-transform before:duration-150 before:ease-out before:content-[''] peer-checked:before:translate-x-full dark:bg-gray-700 dark:peer-checked:bg-green-500 dark:peer-focus:ring-offset-gray-900"
                         ></span>
-                        <span class="font-medium">Voulez-vous activer cette catégorie ?</span>
+                        <span class="font-medium">Voulez-vous publier cette vidéo ?</span>
                     </label>
                 </div>
                 <button type="submit"
@@ -49,6 +57,6 @@
                 </button>
             </form>
         </div>
-
     </div>
+
 </div>
