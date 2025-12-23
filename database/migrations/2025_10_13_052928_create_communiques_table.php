@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText("content");
             $table->text("thumbnail");
             $table->boolean("is_online")->default(false);
-            $table->foreignIdFor(Categorie::class, "category_id")->constrained()->nullOnDelete();
+            $table->foreignIdFor(Categorie::class, "category_id");
             $table->timestamps();
         });
     }
