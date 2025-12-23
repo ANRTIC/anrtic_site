@@ -25,17 +25,18 @@
 
     <div
         id="page-container"
-        class="mx-auto flex min-h-dvh w-full min-w-80 flex-col bg-gray-100 dark:bg-gray-900 dark:text-gray-100"
+        class="mx-auto flex min-h-dvh w-full min-w-80 flex-col bg-green-100 dark:bg-gray-900 dark:text-gray-100"
     >
         <!-- Page Content -->
         <main id="page-content" class="flex max-w-full flex-auto flex-col">
             @include("components.public_header")
 
-            {{ $slot }}
+            @yield("content")
 
             @include("components.public_footer")
         </main>
     </div>
+    
     
 </body>
 </html>

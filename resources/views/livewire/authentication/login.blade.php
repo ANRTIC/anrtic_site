@@ -2,15 +2,7 @@
     class="flex w-full flex-col justify-between gap-6 overflow-hidden bg-white p-6 lg:w-2/5 dark:bg-gray-900 dark:text-gray-100">
     <div class="flex-none text-center lg:text-left">
         <div class="inline-flex items-center gap-1.5 text-sm font-semibold">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 73 49" class="size-7">
-                <path fill="#38bdf8"
-                    d="M46.868 24c0 12.426-10.074 22.5-22.5 22.5-12.427 0-22.5-10.074-22.5-22.5S11.94 1.5 24.368 1.5c12.426 0 22.5 10.074 22.5 22.5Z" />
-                <path fill="#a855f7"
-                    d="M71.132 24c0 12.426-9.975 22.5-22.28 22.5-12.304 0-22.278-10.074-22.278-22.5S36.547 1.5 48.852 1.5c12.304 0 22.28 10.074 22.28 22.5Z" />
-                <path fill="#6b21a8"
-                    d="M36.67 42.842C42.81 38.824 46.868 31.886 46.868 24c0-7.886-4.057-14.824-10.198-18.841A22.537 22.537 0 0 0 26.573 24 22.537 22.537 0 0 0 36.67 42.842Z" />
-            </svg>
-            <span>Circles AI</span>
+            <img class="w-32 h-auto" src="{{ asset("logo/anrtic.png") }}" alt="logo-ANRTIC" />
         </div>
     </div>
     <div class="mx-auto flex w-full max-w-sm grow flex-col justify-center lg:py-28">
@@ -64,6 +56,6 @@
         <!-- END Sign in with email -->
     </div>
     <div class="flex-none text-center text-xs text-gray-500 lg:text-left dark:text-gray-400">
-        <span class="font-medium">ANRTIC &copy;</span>
+        <span class="font-medium">© Tous les droits sont réservés.</span>
     </div>
 </div>

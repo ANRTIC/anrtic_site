@@ -27,11 +27,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.public.index', [
-            "chiffres" => $this->chiffres,
-            "partenaires" => $this->partenaires,
-            "articles" => $this->articles,
-            "videos" => $this->videos
-        ]);
+        return view('livewire.public.index')
+            ->extends("livewire.layouts.user");
     }
 }

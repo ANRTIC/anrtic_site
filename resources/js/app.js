@@ -1,9 +1,14 @@
 // import './bootstrap';
-// import Alpine from "alpinejs";
-import { createIcons, icons } from "lucide";
+import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+import focus from '@alpinejs/focus';
+import { createIcons, icons } from 'lucide';
 import 'remixicon/fonts/remixicon.css';
 
+window.Alpine = Alpine;
 
-/* window.Alpine = Alpine
-Alpine.start() */
-createIcons({icons});
+Alpine.plugin(focus);
+Alpine.start();
+
+createIcons({ icons });
+
+

@@ -19,7 +19,7 @@
                 </p>
             </div>
             <div class="flex flex-col justify-center gap-2 pt-8 pb-16 sm:flex-row sm:items-center sm:gap-3">
-                <a href="#"
+                <a href="{{ route('anrtic.motDG') }}"
                     class="dark:border-gray-transparent group inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-5 py-2.5 text-sm leading-6 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-gray-400/50 active:border-gray-700 active:bg-gray-700 dark:bg-gray-700/75 dark:hover:border-transparent dark:hover:bg-gray-700 dark:focus:ring-gray-700/40">
                     <span>Mot du directeur général</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -29,7 +29,7 @@
                             clip-rule="evenodd" />
                     </svg>
                 </a>
-                <a href="#"
+                <a href="{{ route('anrtic.missions') }}"
                     class="inline-flex items-center justify-center gap-2 rounded-lg border border-transparent bg-white/80 px-5 py-2.5 text-sm leading-6 font-semibold text-gray-800 backdrop-blur-xs hover:text-gray-900 hover:shadow-xs focus:ring-3 focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700">
                     <span>Nos missions</span>
                 </a>
@@ -301,8 +301,7 @@
             <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
                 <div class="flex flex-col rounded-lg lg:col-span-4 lg:flex-row">
                     <div class="lg:w-8/12">
-                        <a href="#"
-                            target="__blank"
+                        <a href="#" target="__blank"
                             class="group relative flex aspect-16/9 w-full items-center justify-center overflow-hidden rounded-lg bg-yellow-200">
                             <div
                                 class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -314,11 +313,8 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <img
-                                src="{{ $articles[0]->thumbnail() }}"
-                                class="aspect-4/3 w-full object-cover"
-                                alt="{{ $articles[0]->short_description }}"
-                            />
+                            <img src="{{ $articles[0]->thumbnail() }}" class="aspect-4/3 w-full object-cover"
+                                alt="{{ $articles[0]->short_description }}" />
                         </a>
                     </div>
                     <div class="w-full lg:w-4/12 lg:pl-6">
@@ -326,8 +322,7 @@
                             <span class="font-medium">{{ $articles[0]->publication_date->format('M j, Y') }}</span>
                         </p>
                         <h3 class="mb-2 text-lg font-bold sm:text-xl">
-                            <a href="#"
-                                target="__blank"
+                            <a href="#" target="__blank"
                                 class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                                 {{ $articles[0]->short_description }}
                             </a>
@@ -338,8 +333,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col lg:col-span-2">
-                    <a href="#"
-                        target="__blank"
+                    <a href="#" target="__blank"
                         class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-green-200">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -350,18 +344,14 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <img
-                            src="{{ $articles[0]->thumbnail() }}"
-                            class="aspect-4/3 w-full object-cover"
-                            alt="{{ $articles[0]->short_description }}"
-                        />
+                        <img src="{{ $articles[0]->thumbnail() }}" class="aspect-4/3 w-full object-cover"
+                            alt="{{ $articles[0]->short_description }}" />
                     </a>
                     <p class="mt-4 mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                         <span class="font-medium">{{ $articles[1]->publication_date->format('M j, Y') }}</span>
                     </p>
                     <h3 class="mb-2 text-lg font-bold sm:text-xl">
-                        <a href="#"
-                            target="__blank"
+                        <a href="#" target="__blank"
                             class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                             {{ $articles[1]->title }}
                         </a>
@@ -371,8 +361,7 @@
                     </p>
                 </div>
                 <div class="flex flex-col lg:col-span-2">
-                    <a href="#"
-                        target="__blank"
+                    <a href="#" target="__blank"
                         class="group relative flex aspect-16/10 w-full items-center justify-center overflow-hidden rounded-lg bg-orange-200">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-green-700/75 opacity-0 transition duration-150 ease-out group-hover:opacity-100">
@@ -383,18 +372,14 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <img
-                            src="{{ $articles[0]->thumbnail() }}"
-                            class="aspect-4/3 w-full object-cover"
-                            alt="{{ $articles[0]->short_description }}"
-                        />
+                        <img src="{{ $articles[0]->thumbnail() }}" class="aspect-4/3 w-full object-cover"
+                            alt="{{ $articles[0]->short_description }}" />
                     </a>
                     <p class="mt-4 mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                         <span class="font-medium">{{ $articles[2]->publication_date->format('M j, Y') }}</span>
                     </p>
                     <h3 class="mb-2 text-lg font-bold sm:text-xl">
-                        <a href="#"
-                            target="__blank"
+                        <a href="#" target="__blank"
                             class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
                             {{ $articles[2]->title }}
                         </a>
@@ -430,9 +415,7 @@
                         </div>
                         <div class="relative">
                             <video class="h-full w-full rounded-lg" controls>
-                                <source
-                                    src="{{ $video->link }}"
-                                />
+                                <source src="{{ $video->link }}" />
                             </video>
                             <h3 class="mb-2 text-lg leading-6 font-bold text-gray-800 dark:text-gray-200">
                                 {{ Str::limit($video->title, 130) }}
@@ -461,15 +444,15 @@
             <!-- Logos -->
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
                 @foreach ($partenaires as $partenaire)
-                    <a href="#" class="group relative rounded-xl bg-white p-4 shadow-md shadow-gray-100 transition duration-150 hover:shadow-lg hover:shadow-gray-500/10 active:shadow-xs lg:p-6 dark:bg-gray-800 dark:shadow-gray-900 dark:hover:shadow-rose-500/30">
-                        <div class="absolute inset-0 scale-100 rounded-xl bg-white opacity-0 transition duration-100 group-hover:scale-105 group-hover:opacity-100 group-active:scale-100 group-active:opacity-0 dark:bg-gray-800">
+                    <a href="#"
+                        class="group relative rounded-xl bg-white p-4 shadow-md shadow-gray-100 transition duration-150 hover:shadow-lg hover:shadow-gray-500/10 active:shadow-xs lg:p-6 dark:bg-gray-800 dark:shadow-gray-900 dark:hover:shadow-rose-500/30">
+                        <div
+                            class="absolute inset-0 scale-100 rounded-xl bg-white opacity-0 transition duration-100 group-hover:scale-105 group-hover:opacity-100 group-active:scale-100 group-active:opacity-0 dark:bg-gray-800">
                         </div>
                         <div class="relative text-center">
-                            <div class="inline-flex items-center gap-2 py-2 text-lg font-semibold text-gray-900 transition dark:text-gray-100">
-                                <img 
-                                    class="inline-block size-12" 
-                                    src="{{ $partenaire->logoURL() }}" 
-                                    />
+                            <div
+                                class="inline-flex items-center gap-2 py-2 text-lg font-semibold text-gray-900 transition dark:text-gray-100">
+                                <img class="inline-block size-12" src="{{ $partenaire->logoURL() }}" />
                                 <span>{{ $partenaire->name }}</span>
                             </div>
                         </div>
@@ -479,13 +462,13 @@
         </div>
     </div>
 
-    <!-- Alerter ANRTIC -->
+    <!-- Contact ANRTIC -->
     <div class="bg-cover"
         style="background-image: url(&quot;https://cdn.tailkit.com/media/placeholders/photo-wpU4veNGnHg-1280x800.jpg&quot;);">
         <div class="bg-green-900/95">
             <div class="container mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
                 <div class="flex flex-col gap-16 lg:flex-row lg:items-center">
-                    <!-- Heading with Company Info -->
+                    <!-- Infos -->
                     <div class="lg:w-2/5">
                         <div class="mb-1 text-sm font-bold tracking-wider text-green-300 uppercase">
                             Nous répondons sous 24 heures
@@ -504,9 +487,8 @@
                             <span>Fax:</span> (+269) 773 87 61
                         </div>
                     </div>
-                    <!-- END Heading with Company Info -->
 
-                    <!-- Contact Form -->
+                    <!-- Formulaire -->
                     <div
                         class="flex flex-col overflow-hidden rounded-xl bg-white/10 p-2 shadow-xs lg:mx-auto lg:w-1/2 dark:text-gray-100">
                         <form onsubmit="return false;"
@@ -560,7 +542,6 @@
                             </button>
                         </form>
                     </div>
-                    <!-- END Contact Form -->
                 </div>
             </div>
         </div>

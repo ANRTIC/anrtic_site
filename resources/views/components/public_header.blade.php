@@ -1,44 +1,77 @@
-<header x-data="{ mobileNavOpen: false }" id="page-header" class="relative flex flex-none items-center py-8">
-    <div class="relative container mx-auto flex items-center justify-between px-4 lg:px-8 xl:max-w-7xl">
-        <div class="flex items-center gap-4">
+<div
+    id="page-header"
+    class="z-1 flex flex-none items-center bg-gray-100 shadow-xs"
+>
+    <div class="container mx-auto px-4 lg:px-8 xl:max-w-7xl">
+        <div class="flex justify-between py-4">
             <!-- Logo -->
-            <a href="#" class="group inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
-                <img src="{{ asset("logo/anrtic.png") }}" class="inline-block size-5"/>
+            <div class="flex items-center gap-2 lg:gap-6">
+                <a href="{{ route("accueil") }}">
+                    <img class="w-32 h-auto" src="{{ asset("logo/anrtic.png") }}" alt="logo-ANRTIC" />
+                </a>
+            </div>
+
+            <!-- Drapeau -->
+            <div class="flex items-center gap-2">
+                <svg 
+                    class="inline-block size-10"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 500 300"
+                >
+                    <path fill="#3A75C4" d="M0 0h500v300H0z"/><path fill="#CE1126" d="M0 0h500v225H0z"/><path fill="#FFF" d="M0 0h500v150H0z"/><path fill="#FFC61E" d="M0 0h500v75H0z"/><path fill="#3D8E33" d="M0 300l250-150L0 0v300z"/><circle fill="#FFF" cx="85" cy="150" r="67.5"/><circle fill="#3D8E33" cx="115" cy="150" r="67.5"/><path id="a" fill="#FFF" d="M100.01 89.2l7.36 22.588-19.258-13.949h23.776L92.63 111.788l7.38-22.588z"/><use xlink:href="#a" y="32.208"/><use xlink:href="#a" y="64.417"/><use xlink:href="#a" y="96.625"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header x-data="{ mobileNavOpen: false }" id="page-header" class="relative flex flex-none items-center py-8 bg-green-700">
+    <div class="relative container mx-auto flex items-center justify-between px-4 lg:px-8 xl:max-w-7xl">
+        <div class="flex items-center">
+            <!-- Logo 
+            <a href="{{ route("accueil") }}" class="group inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
+                <img src="{{ asset("logo/anrtic.png") }}" class="inline-block size-10"/>
             </a>
+            -->
 
             <!-- Desktop menu -->
             <ul class="mt-0.5 hidden items-center lg:flex">
                 <li
                     class="group [&:focus-within>div]:visible [&:focus-within>div>div]:scale-100 [&:focus-within>div>div]:opacity-100 [&:focus-within>div>div>div]:scale-100 [&:focus-within>div>div>div]:opacity-100">
                     <button type="button"
-                        class="inline-flex h-8 items-center gap-1 px-2.5 text-sm font-semibold text-gray-900 group-hover:text-green-600 dark:text-gray-100 dark:group-hover:text-green-400"
-                        onclick="this.blur()">
-                        <span>L'ANRTIC</span>
+                        class="inline-flex h-8 items-center gap-1 pr-4 text-sm font-semibold text-white group-hover:text-gray-200 dark:text-gray-100 dark:group-hover:text-green-400"
+                        onclick="this.blur()"
+                    >
+                        L'ANRTIC
                         <i class="ri-arrow-drop-down-line inline-block size-4 opacity-50"></i>
-                        </svg>
                     </button>
 
-                    <div class="invisible absolute top-8 right-8 left-8 z-1 w-80 pt-8 group-hover:visible">
+                    <div class="invisible absolute top-4 right-8 left-8 z-1 w-80 pt-8 group-hover:visible">
                         <div
                             class="origin-top scale-90 overflow-hidden rounded-lg bg-white opacity-0 shadow-xl ring-1 ring-black/5 transition duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800 dark:ring-white/10">
                             <div class="grid scale-95 grid-cols-1 opacity-0 transition duration-500 ease-out group-hover:scale-100 group-hover:opacity-100">
                                 <div class="space-y-6 p-8">
                                     <nav class="flex flex-col gap-3">
-                                        <a href="#"
+                                        <a href="{{ route("anrtic.motDG") }}"
                                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                             Mot du directeur général
                                         </a>
-                                        <a href="#"
+                                        <a href="{{ route("anrtic.organigramme") }}"
                                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                             Organigramme
                                         </a>
-                                        <a href="#"
+                                        <a href="{{ route("anrtic.planStrategique") }}"
                                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                             Plan stratégique
                                         </a>
-                                        <a href="#"
+                                        <a href="{{ route("anrtic.missions") }}"
                                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                             Nos missions
+                                        </a>
+                                        <a href="{{ route("anrtic.informationsUtiles") }}"
+                                            class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
+                                            Informations utiles
                                         </a>
                                     </nav>
                                 </div>
@@ -49,14 +82,14 @@
                 <li
                     class="group [&:focus-within>div]:visible [&:focus-within>div>div]:scale-100 [&:focus-within>div>div]:opacity-100 [&:focus-within>div>div>div]:scale-100 [&:focus-within>div>div>div]:opacity-100">
                     <button type="button"
-                        class="inline-flex h-8 items-center gap-1 px-2.5 text-sm font-semibold text-gray-900 group-hover:text-green-600 dark:text-gray-100 dark:group-hover:text-green-400"
-                        onclick="this.blur()">
-                        <span>Actualités</span>
+                        class="inline-flex h-8 items-center gap-1 pr-4 text-sm font-semibold text-white group-hover:text-gray-200 dark:text-gray-100 dark:group-hover:text-green-400"
+                        onclick="this.blur()"
+                    >
+                        Actualités
                         <i class="ri-arrow-down-s-line inline-block size-4 opacity-50"></i>
-                        </svg>
                     </button>
 
-                    <div class="invisible absolute top-8 right-8 left-8 z-1 ml-20 w-80 pt-8 group-hover:visible">
+                    <div class="invisible absolute top-4 right-8 left-8 z-1 ml-20 w-80 pt-8 group-hover:visible">
                         <div
                             class="origin-top scale-90 overflow-hidden rounded-lg bg-white opacity-0 shadow-xl ring-1 ring-black/5 transition duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800 dark:ring-white/10">
                             <div class="grid scale-95 grid-cols-1 opacity-0 transition duration-500 ease-out group-hover:scale-100 group-hover:opacity-100">
@@ -135,14 +168,14 @@
                 <li
                     class="group [&:focus-within>div]:visible [&:focus-within>div>div]:scale-100 [&:focus-within>div>div]:opacity-100 [&:focus-within>div>div>div]:scale-100 [&:focus-within>div>div>div]:opacity-100">
                     <button type="button"
-                        class="inline-flex h-8 items-center gap-1 px-2.5 text-sm font-semibold text-gray-900 group-hover:text-green-600 dark:text-gray-100 dark:group-hover:text-green-400"
-                        onclick="this.blur()">
-                        <span>Observatoires</span>
+                        class="inline-flex h-8 items-center gap-1 pr-4 text-sm font-semibold text-white group-hover:text-gray-200 dark:text-gray-100 dark:group-hover:text-green-400"
+                        onclick="this.blur()"
+                    >
+                        Observatoires
                         <i class="ri-arrow-drop-down-line inline-block size-4 opacity-50"></i>
-                        </svg>
                     </button>
 
-                    <div class="invisible absolute top-8 right-8 left-8 z-1 ml-40 w-80 pt-8 group-hover:visible">
+                    <div class="invisible absolute top-4 right-8 left-8 z-1 ml-40 w-80 pt-8 group-hover:visible">
                         <div
                             class="origin-top scale-90 overflow-hidden rounded-lg bg-white opacity-0 shadow-xl ring-1 ring-black/5 transition duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800 dark:ring-white/10">
                             <div
@@ -174,14 +207,14 @@
                 <li
                     class="group [&:focus-within>div]:visible [&:focus-within>div>div]:scale-100 [&:focus-within>div>div]:opacity-100 [&:focus-within>div>div>div]:scale-100 [&:focus-within>div>div>div]:opacity-100">
                     <button type="button"
-                        class="inline-flex h-8 items-center gap-1 px-2.5 text-sm font-semibold text-gray-900 group-hover:text-green-600 dark:text-gray-100 dark:group-hover:text-green-400"
-                        onclick="this.blur()">
-                        <span>Régulation</span>
+                        class="inline-flex h-8 items-center gap-1 pr-4 text-sm font-semibold text-white group-hover:text-gray-200 dark:text-gray-100 dark:group-hover:text-green-400"
+                        onclick="this.blur()"
+                    >
+                        Régulation
                         <i class="ri-arrow-drop-down-line inline-block size-4 opacity-50"></i>
-                        </svg>
                     </button>
 
-                    <div class="invisible absolute top-8 right-8 left-8 z-1 ml-80 w-80 pt-8 group-hover:visible">
+                    <div class="invisible absolute top-4 right-8 left-8 z-1 ml-80 w-80 pt-8 group-hover:visible">
                         <div
                             class="origin-top scale-90 overflow-hidden rounded-lg bg-white opacity-0 shadow-xl ring-1 ring-black/5 transition duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-800 dark:ring-white/10">
                             <div
@@ -203,19 +236,19 @@
                                             x-transition:leave-start="opacity-100 scale-100"
                                             x-transition:leave-end="opacity-0 scale-95"
                                             class="flex flex-col gap-3 ml-10">
-                                            <a href="#"
+                                            <a href="{{ route("regulation.avisDecisions") }}"
                                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                                 Avis & décisions
                                             </a>
-                                            <a href="#"
+                                            <a href="{{ route("regulation.lois") }}"
                                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                                 Lois
                                             </a>
-                                            <a href="#"
+                                            <a href="{{ route("regulation.decrets") }}"
                                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                                 Décrets
                                             </a>
-                                            <a href="#"
+                                            <a href="{{ route("regulation.arretes") }}"
                                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                                 Arrêtés
                                             </a>
@@ -250,6 +283,15 @@
                         </div>
                     </div>
                 </li>
+                <li
+                    class="group [&:focus-within>div]:visible [&:focus-within>div>div]:scale-100 [&:focus-within>div>div]:opacity-100 [&:focus-within>div>div>div]:scale-100 [&:focus-within>div>div>div]:opacity-100">
+                    <a  href="{{ route("contact") }}"
+                        class="inline-flex h-8 items-center gap-1 pr-4 text-sm font-semibold text-white group-hover:text-gray-200 dark:text-gray-100 dark:group-hover:text-green-400"
+                        onclick="this.blur()"
+                    >
+                        Contact
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -261,9 +303,8 @@
                     <span>Sign In</span>
                 </a>
                 -->
-                <a href="#"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-green-700 bg-green-700 px-3 py-2 text-sm leading-5 font-semibold text-white hover:border-green-600 hover:bg-green-600 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90">
-                    <span>Newsletter</span>
+                <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-none bg-green-600 px-3 py-2 text-sm leading-5 font-semibold text-white hover:bg-green-900 hover:text-white focus:ring-3 focus:ring-green-400/50 active:border-green-700 active:bg-green-700 dark:focus:ring-green-400/90">
+                    Newsletter
                     <i data-lucide="mail" class="size-5 opacity-50 sm:inline-block"></i>
                 </a>
             </div>
@@ -297,7 +338,7 @@
         x-bind:role="mobileNavOpen ? 'dialog' : null">
         <div class="flex items-center justify-between p-6">
             <!-- Logo -->
-            <a id="tkMobileNavLabel" href="#"
+            <a id="tkMobileNavLabel" href="{{ route("accueil") }}"
                 class="group inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
                 <img src="{{ asset("logo/anrtic.png") }}" class="inline-block size-5"/>
             </a>
@@ -341,21 +382,25 @@
                     x-transition:leave-end="opacity-0 scale-95"
                     class="space-y-2">
                     <nav class="flex flex-col gap-3 ml-5">
-                        <a href="#"
+                        <a href="{{ route("anrtic.motDG") }}"
                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                             Mot du directeur général
                         </a>
-                        <a href="#"
+                        <a href="{{ route("anrtic.organigramme") }}"
                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                             Organigramme
                         </a>
-                        <a href="#"
+                        <a href="{{ route("anrtic.planStrategique") }}"
                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                             Plan stratégique
                         </a>
-                        <a href="#"
+                        <a href="{{ route("anrtic.missions") }}"
                             class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                             Nos missions
+                        </a>
+                        <a href="{{ route("anrtic.informationsUtiles") }}"
+                            class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
+                            Informations utiles
                         </a>
                     </nav>
                 </div>
@@ -523,19 +568,19 @@
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 scale-95"
                             class="flex flex-col gap-3 ml-10">
-                            <a href="#"
+                            <a href="{{ route("regulation.avisDecisions") }}"
                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                 Avis & décisions
                             </a>
-                            <a href="#"
+                            <a href="{{ route("regulation.lois") }}"
                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                 Lois
                             </a>
-                            <a href="#"
+                            <a href="{{ route("regulation.decrets") }}"
                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                 Décrets
                             </a>
-                            <a href="#"
+                            <a href="{{ route("regulation.arretes") }}"
                                 class="text-sm font-medium text-gray-700 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400">
                                 Arrêtés
                             </a>

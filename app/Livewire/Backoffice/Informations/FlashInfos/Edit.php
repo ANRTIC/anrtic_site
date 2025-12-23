@@ -5,6 +5,7 @@ namespace App\Livewire\Backoffice\Informations\FlashInfos;
 use Livewire\Component;
 use App\Models\FlashInfos;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Cache;
 
 class Edit extends Component
 {
@@ -33,6 +34,7 @@ class Edit extends Component
         ]);
 
         $this->flashinfos->update($validatedData);
+        Cache::forget('flash_infos');
 
         return $this->redirect(route("backoffice.flashinfos"), navigate: true);
     }

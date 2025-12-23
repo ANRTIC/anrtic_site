@@ -50,7 +50,7 @@
                             clip-rule="evenodd" />
                     </svg>
                 </div>
-                <input type="text" wire:model.live.debounce="search"
+                <input type="text" wire:model.debounce.500ms="search"
                     class="block w-full rounded-lg border border-gray-200 py-2 pr-3 pl-10 text-sm leading-6 placeholder-gray-400 focus:border-green-500 focus:ring-3 focus:ring-green-500/50 dark:border-gray-800 dark:bg-gray-900 dark:focus:border-green-500"
                     placeholder="Rechercher..." />
             </div>
@@ -112,7 +112,7 @@
                                     <p class="font-medium">#{{ $avisdecision->reference }}</p>
                                 </td>
                                 <td class="p-3">
-                                    <p class="font-medium">{{ $avisdecision->description }}</p>
+                                    <p class="font-medium">{{ Str::limit($avisdecision->description, 100) }}</p>
                                 </td>
                                 <td class="p-3">
                                     @if ($avisdecision->is_online)
@@ -211,7 +211,6 @@
                 </button>
             </div>
         </div>
-        <!-- END Modal Dialog -->
     </div>
 
     <!-- Pagination -->
