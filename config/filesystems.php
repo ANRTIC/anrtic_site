@@ -74,16 +74,6 @@ return [
     */
 
     'links' => [
-        // public_path('storage') => storage_path('app/public'),
-        public_path("/media/articles") => storage_path("app/public/media/articles"),
-        public_path("/media/communiques") => storage_path("app/public/media/communiques"),
-        public_path("/media/partenaires") => storage_path("app/public/media/partenaires"),
-        public_path("/media/operateurs") => storage_path("app/public/media/operateurs"),
-        public_path("/media/avis_decisions") => storage_path("app/public/media/avis_decisions"),
-        public_path("/media/lois") => storage_path("app/public/media/lois"),
-        public_path("/media/arretes") => storage_path("app/public/media/arretes"),
-        public_path("/media/decrets") => storage_path("app/public/media/decrets"),
-        public_path("/media/notes_service") => storage_path("app/public/media/notes_service"),
         public_path("/media/user_profiles") => storage_path("app/public/media/user_profiles"),
 
         public_path("/media/photos_equipements") => storage_path("app/public/media/photos_equipements"),
