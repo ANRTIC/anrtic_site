@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PhotoEquipement;
 use App\Models\CategorieEquipement;
@@ -17,6 +18,23 @@ class Equipement extends Model
         "category_id",
         "marque_id",
         "demandeur_id"
+=======
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Equipement extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'designation',
+        'modele',
+        'statut',
+        'certificat',
+        'category_id',
+        'marque_id',
+        'demandeur_id',
+>>>>>>> main
     ];
 
     public function demandeur()
@@ -39,8 +57,11 @@ class Equipement extends Model
         return $this->belongsTo(Marque::class);
     }
 
+<<<<<<< HEAD
     public function certificat()
     {
         return $this->hasOne(Certificat::class);
     }
+=======
+>>>>>>> main
 }

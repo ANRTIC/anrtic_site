@@ -5,6 +5,7 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 
+<<<<<<< HEAD
 /*
 Route::middleware('guest')->group(function () { 
 
@@ -14,6 +15,15 @@ Route::middleware('guest')->group(function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+=======
+//Route::get("/", App\Livewire\Public\Index::class)->name("home");
+
+/*
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+*/
+>>>>>>> main
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -34,6 +44,9 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
+<<<<<<< HEAD
 */
 
+=======
+>>>>>>> main
 require __DIR__.'/auth.php';

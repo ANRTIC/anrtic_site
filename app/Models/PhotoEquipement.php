@@ -22,4 +22,8 @@ class PhotoEquipement extends Model
     {
         return Storage::url($this->url);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

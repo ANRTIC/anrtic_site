@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Representant extends Model
 {
+<<<<<<< HEAD
+=======
+    // Allow mass assignment for these fields
+>>>>>>> main
     protected $fillable = [
         "nom_complet",
         "adresse",
@@ -13,4 +17,15 @@ class Representant extends Model
         "telephone",
         "demandeur_id"
     ];
+<<<<<<< HEAD
+=======
+
+    /**
+     * Get the demandeur that this representant belongs to
+     */
+    public function demandeur()
+    {
+        return $this->belongsTo(Demandeur::class);
+    }
+>>>>>>> main
 }
