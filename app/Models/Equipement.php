@@ -3,6 +3,9 @@
 namespace App\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/branch-homologation
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PhotoEquipement;
 use App\Models\CategorieEquipement;
@@ -18,6 +21,7 @@ class Equipement extends Model
         "category_id",
         "marque_id",
         "demandeur_id"
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +39,8 @@ class Equipement extends Model
         'marque_id',
         'demandeur_id',
 >>>>>>> main
+=======
+>>>>>>> origin/branch-homologation
     ];
 
     public function demandeur()
@@ -58,10 +64,16 @@ class Equipement extends Model
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/branch-homologation
     public function certificat()
     {
         return $this->hasOne(Certificat::class);
     }
+<<<<<<< HEAD
 =======
 >>>>>>> main
+=======
+>>>>>>> origin/branch-homologation
 }

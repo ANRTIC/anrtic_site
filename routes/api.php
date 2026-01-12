@@ -1,12 +1,16 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/branch-homologation
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -88,3 +92,5 @@ Route::fallback(function () {
     return response()->json(['message' => 'Endpoint not found'], 404);
 });
 >>>>>>> main
+=======
+>>>>>>> origin/branch-homologation

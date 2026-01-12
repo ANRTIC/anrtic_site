@@ -23,7 +23,11 @@ class PhotoEquipement extends Model
         return Storage::url($this->url);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> main
+=======
+}
+>>>>>>> origin/branch-homologation

@@ -6,6 +6,9 @@ use Livewire\Volt\Volt;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/branch-homologation
 /*
 Route::middleware('guest')->group(function () { 
 
@@ -15,6 +18,7 @@ Route::middleware('guest')->group(function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+<<<<<<< HEAD
 =======
 //Route::get("/", App\Livewire\Public\Index::class)->name("home");
 
@@ -24,6 +28,8 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 */
 >>>>>>> main
+=======
+>>>>>>> origin/branch-homologation
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -45,8 +51,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 */
 
 =======
 >>>>>>> main
+=======
+*/
+
+>>>>>>> origin/branch-homologation
 require __DIR__.'/auth.php';

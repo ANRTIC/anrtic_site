@@ -3,6 +3,9 @@
 namespace App\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/branch-homologation
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -102,6 +105,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function generateDefaultPassword()
     {
         return Str::random(8);
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -199,5 +203,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserActivity::class);
 >>>>>>> main
+=======
+>>>>>>> origin/branch-homologation
     }
 }
