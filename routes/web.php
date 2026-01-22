@@ -7,6 +7,10 @@ use Livewire\Volt\Volt;
 
 Route::get("/", App\Livewire\Public\Index::class)->name("home");
 
+Route::get("/error", function() {
+    abort(503);
+});
+
 /*
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

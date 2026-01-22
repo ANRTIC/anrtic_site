@@ -7,7 +7,7 @@
     <title>ANRTIC | Comores</title>
     
     <!-- Inter + Caveat web fonts from Bunny.net (GDPR compliant) -->
-    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link
       href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"

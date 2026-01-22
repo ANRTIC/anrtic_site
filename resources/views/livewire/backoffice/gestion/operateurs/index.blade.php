@@ -147,7 +147,6 @@
                                             Non publié
                                         </div>
                                     @endif
-
                                 </td>
                                 <td class="py-3 pl-3 text-right">
                                     <div class="inline-flex items-center gap-1">

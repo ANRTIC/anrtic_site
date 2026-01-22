@@ -89,10 +89,6 @@ return [
         public_path("/media/appel_offres") => storage_path("app/public/media/appel_offres"),
         public_path("/media/rapports") => storage_path("app/public/media/rapports"),
         public_path("/media/etudes_enquetes") => storage_path("app/public/media/etudes_enquetes"),
-
-        /* Homologation  */
-        public_path("/media/photos_equipements") => storage_path("app/public/media/photos_equipements"),
-        public_path("/media/certificats") => storage_path("app/public/media/certificats")
     ],
 
 ];

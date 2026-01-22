@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $role1 = Role::create(["name" => "SUPER_ADMIN"]);
         $role2 = Role::create(["name" => "WEB_MASTER"]);
-        $role3 = Role::create(["name" => "ADMIN"]);
-        $role4 = Role::create(["name" => "AGENT"]);
 
         // SUPER_ADMIN
         $user1 = User::factory()->create([
@@ -32,32 +30,9 @@ class DatabaseSeeder extends Seeder
             "last_name" => "WEB_MASTER",
             "email" => "contact@anrtic.km"
         ]);
-        // ADMIN
-        $user3 = User::factory()->create([
-            "first_name" => "Chabane",
-            "last_name" => "MOHAMED",
-            "email" => "chabane.mohamed@anrtic.km"
-        ]);
-        // AGENT
-        $user4 = User::factory()->create([
-            "first_name" => "Nibrasse",
-            "last_name" => "FOUAD",
-            "email" => "nibrasse0108@gmail.com"
-        ]);
-        // Blocked account
-        $user5 = User::factory()->create([
-            "first_name" => "Awesso",
-            "last_name" => "GNIMDOU",
-            "email" => "awesso2002@gmail.com",
-            "is_blocked" => true
-        ]);
-
 
         $user1->assignRole($role1);
         $user2->assignRole($role2);
-        $user3->assignRole($role3);
-        $user4->assignRole($role4);
-        $user5->assignRole($role4);
         
     }
 }

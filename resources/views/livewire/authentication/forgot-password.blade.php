@@ -47,7 +47,5 @@
         </form>
         <!-- END Password Reset -->
     </div>
-    <div class="flex-none text-center text-xs text-gray-500 lg:text-left dark:text-gray-400">
-        <span class="font-medium">ANRTIC &copy;</span>
-    </div>
+    @include("components.authentication_footer")
 </div>

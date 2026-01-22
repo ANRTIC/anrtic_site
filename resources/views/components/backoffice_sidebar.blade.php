@@ -1,14 +1,8 @@
 <!-- Sidebar Header -->
 <div class="flex h-16 flex-none items-center justify-between border-b border-gray-100 px-4 dark:border-gray-700/75">
     <!-- Brand -->
-    <a href="#"
-        class="group inline-flex items-center gap-2 px-2.5 font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 32" fill="none" class="w-8">
-            <path d="M55.5 0H77.5L58.5 32H36.5L55.5 0Z" class="ccustom" fill="#3f3f46"></path>
-            <path d="M35.5 0H51.5L32.5 32H16.5L35.5 0Z" class="ccompli1" fill="#71717a"></path>
-            <path d="M19.5 0H31.5L12.5 32H0.5L19.5 0Z" class="ccompli2" fill="#d4d4d8"></path>
-        </svg>
-        <span>Carbon</span>
+    <a href="#">
+        <img src="{{ asset("logo/anrtic.png") }}" alt="anrtic-logo" width="100" height="100"/>
     </a>
     <!-- END Brand -->
 
@@ -69,7 +63,7 @@
                 <h4 class="mx-2.5 pt-2 pb-2 text-sm font-semibold text-black dark:text-white">
                     Utilisateurs
                 </h4>
-                <a href="#"
+                <a href="{{ route("backoffice.webmasters") }}"
                     class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
                     <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -78,16 +72,6 @@
                         </path>
                     </svg>
                     <span class="grow py-1.5">Administrateurs web</span>
-                </a>
-                <a href="#"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M21 9V20.9925C21 21.5511 20.5552 22 20.0066 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H14V8C14 8.55228 14.4477 9 15 9H21ZM21 7H16V2.00318L21 7ZM8 7V9H11V7H8ZM8 11V13H16V11H8ZM8 15V17H16V15H8Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Administrateurs homolagation</span>
                 </a>
             @endhasrole
 
@@ -439,104 +423,7 @@
                     <span class="grow py-1.5">Gallérie</span>
                 </a>
             @endhasrole
-
-            @hasrole(['ADMIN', 'AGENT'])
-                <h4 class="mx-2.5 pt-6 pb-2 text-sm font-semibold text-black dark:text-white">
-                    Homologation
-                </h4>
-                @hasrole('ADMIN')
-                    <a href="{{ route('backoffice.homologation.agents') }}"
-                        class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                        wire:navigate>
-                        <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M1 5C1 4.44772 1.44772 4 2 4H22C22.5523 4 23 4.44772 23 5V19C23 19.5523 22.5523 20 22 20H2C1.44772 20 1 19.5523 1 19V5ZM13 8V10H19V8H13ZM18 12H13V14H18V12ZM10.5 10C10.5 8.61929 9.38071 7.5 8 7.5C6.61929 7.5 5.5 8.61929 5.5 10C5.5 11.3807 6.61929 12.5 8 12.5C9.38071 12.5 10.5 11.3807 10.5 10ZM8 13.5C6.067 13.5 4.5 15.067 4.5 17H11.5C11.5 15.067 9.933 13.5 8 13.5Z">
-                            </path>
-                        </svg>
-                        <span class="grow py-1.5">Agents</span>
-                    </a>
-                @endhasrole
-
-                <a href="{{ route('backoffice.homologation.equipements') }}"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                    wire:navigate>
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M14 20H10V22H8V20H5C4.44772 20 4 19.5523 4 19V16H2V14H4V10H2V8H4V5C4 4.44772 4.44772 4 5 4H8V2H10V4H14V2H16V4H19C19.5523 4 20 4.44772 20 5V8H22V10H20V14H22V16H20V19C20 19.5523 19.5523 20 19 20H16V22H14V20ZM7 7V11H11V7H7Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Equipements</span>
-                </a>
-                <a href="{{ route("backoffice.homologation.demandeurs") }}"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                    wire:navigate>
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M14 20H10V22H8V20H5C4.44772 20 4 19.5523 4 19V16H2V14H4V10H2V8H4V5C4 4.44772 4.44772 4 5 4H8V2H10V4H14V2H16V4H19C19.5523 4 20 4.44772 20 5V8H22V10H20V14H22V16H20V19C20 19.5523 19.5523 20 19 20H16V22H14V20ZM7 7V11H11V7H7Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Demandeurs</span>
-                </a>
-                <a href="{{ route("backoffice.homologation.categories") }}"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                    wire:navigate>
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Catégories</span>
-                </a>
-                <a href="{{ route("backoffice.homologation.marques") }}"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50"
-                    wire:navigate>
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M5 2H19C19.5523 2 20 2.44772 20 3V22.1433C20 22.4194 19.7761 22.6434 19.5 22.6434C19.4061 22.6434 19.314 22.6168 19.2344 22.5669L12 18.0313L4.76559 22.5669C4.53163 22.7136 4.22306 22.6429 4.07637 22.4089C4.02647 22.3293 4 22.2373 4 22.1433V3C4 2.44772 4.44772 2 5 2Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Marques</span>
-                </a>
-                <a href="#"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M16 2L21 7V21.0082C21 21.556 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918C3 2.44405 3.44495 2 3.9934 2H16ZM11 7V9H13V7H11ZM11 11V17H13V11H11Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Dossiers</span>
-                </a>
-                <a href="#"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20.9998 7L16 2H3.9985C3.44749 2 3 2.44405 3 2.9918V21.0082C3 21.5447 3.44476 22 3.9934 22H12.3414C12.1203 21.3744 12 20.7013 12 20C12 16.6863 14.6863 14 18 14C19.0928 14 20.1174 14.2922 20.9999 14.8026L20.9998 7ZM14.4646 19.4647L18.0001 23.0002L22.9498 18.0505L21.5356 16.6362L18.0001 20.1718L15.8788 18.0505L14.4646 19.4647Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Homologation délivrés</span>
-                </a>
-                <a href="#"
-                    class="group flex items-center gap-2.5 rounded-lg px-2.5 text-sm font-medium hover:bg-gray-100/60 dark:hover:bg-gray-700/50">
-                    <svg class="inline-block size-4 flex-none text-gray-400 group-hover:text-gray-950 dark:group-hover:text-gray-50"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z">
-                        </path>
-                    </svg>
-                    <span class="grow py-1.5">Notifications</span>
-                    <span
-                        class="inline-flex rounded-full border border-red-200 bg-red-100 px-1.5 py-0.5 text-xs leading-4 font-semibold text-red-700 dark:border-red-700 dark:bg-red-700 dark:text-red-50">3</span>
-                </a>
-            @endhasrole
         </nav>
-        <!-- END Navigation -->
     </div>
 </div>
 
