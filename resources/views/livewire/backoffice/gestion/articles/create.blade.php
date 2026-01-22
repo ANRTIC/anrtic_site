@@ -103,7 +103,7 @@
                     </div>
                     <div class="space-y-1">
                         <label class="group relative inline-flex items-center gap-3">
-                            <input type="checkbox" class="peer sr-only" name='is_online' value="{{ old("is_online") }}" />
+                            <input type="checkbox" class="peer sr-only" name='is_online' value="{{ old("is_online") }}" checked/>
                             <span
                                 class="relative h-7 w-12 flex-none rounded-full bg-gray-300 transition-all duration-150 ease-out peer-checked:bg-green-500 peer-focus:ring-3 peer-focus:ring-green-500/50 peer-focus:ring-offset-2 peer-focus:ring-offset-white peer-disabled:cursor-not-allowed peer-disabled:opacity-75 before:absolute before:top-1 before:left-1 before:size-5 before:rounded-full before:bg-white before:transition-transform before:duration-150 before:ease-out before:content-[''] peer-checked:before:translate-x-full dark:bg-gray-700 dark:peer-checked:bg-green-500 dark:peer-focus:ring-offset-gray-900"></span>
                             <span class="font-medium">Voulez-vous publier cet article ?</span>

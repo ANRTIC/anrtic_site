@@ -1,3 +1,70 @@
+<div 
+    x-data="{
+        index: 0,
+        timer: null,
+        count: {{ count($flash_infos) }},
+        start() {
+            this.timer = setInterval(() => {
+                this.next()
+            }, 5000)
+        },
+        stop() {
+            clearInterval(this.timer)
+        },
+        next() {
+            this.index = (this.index + 1) % this.count
+        },
+        prev() {
+            this.index = (this.index - 1 + this.count) % this.count
+        }
+    }"
+    x-init="start()"
+    class="fixed inset-x-0 bottom-0 z-60 m-2 sm:m-4"
+>
+  <div class="container mx-auto flex items-center justify-between rounded-lg bg-green-700 p-4 shadow-lg xl:max-w-7xl">
+    @foreach ($flash_infos as $i => $el)
+        <div 
+            x-show="index === {{ $i }}"
+            x-transition.opacity
+            class="flex grow items-center gap-2 text-emerald-50 sm:text-lg">
+            <p class="text-sm font-medium">
+                <span class="font-extrabold">{{ $el->categorie->name }}</span> · 
+                {{ $el->title }}
+            </p>
+        </div>
+    @endforeach
+    <div class="ml-2 flex gap-4 items-center">
+      <button
+        type="button"
+        @click="stop(); prev(); start()"
+        class="inline-flex items-center justify-center rounded-sm p-1 text-white opacity-75 hover:opacity-100 focus:ring-3 focus:ring-gray-500/25 focus:outline-hidden active:opacity-75"
+      >
+        <svg 
+            class="inline-block size-7"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor"
+        >
+            <path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
+        </svg>
+      </button>
+      <button
+        type="button"
+        @click="stop(); next(); start()"
+        class="inline-flex items-center justify-center rounded-sm p-1 text-white opacity-75 hover:opacity-100 focus:ring-3 focus:ring-gray-500/25 focus:outline-hidden active:opacity-75"
+      >
+        <svg 
+            class="inline-block size-7"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="currentColor"
+        >
+            <path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
 <footer id="page-footer" class="bg-gray-900 text-gray-100">
     <div class="container mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
         <div class="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-6 lg:gap-10">

@@ -29,7 +29,7 @@
                 <div class="w-full py-6 xl:w-8/12">
                     <div class="grid grid-cols-1 lg:grid-cols-2">
                         <!-- Illustration -->
-                        <div class="p-12 text-green-500 lg:p-20">
+                        <div class="p-12 text-green-600 lg:p-20">
                             <svg class="mx-auto w-48 lg:w-full" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 581.048 526.161" data-name="Layer 1">
                                 <path fill="#ffb6b6" d="m408.662 514.39-9.901-.001-4.71-38.19 14.613.001-.002 38.19z" />

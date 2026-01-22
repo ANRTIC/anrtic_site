@@ -12,7 +12,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $reference;
+    public $reference = "nibrasse";
     public $description;
     public $adopted_at;
     public $published_at;

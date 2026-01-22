@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <!-- Card Body -->
+    <!-- Card -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
         @forelse ($articles as $article)
             <div class="flex flex-col rounded-lg bg-white shadow-xs dark:bg-gray-800 dark:text-gray-100">
@@ -115,8 +115,8 @@
             </div>
         @empty
     </div>
-    <div class="grid grid-cols-1">
-            <div class="relative px-6 w-full py-20 md:py-40 dark:border-gray-700">
+    <div class="grid grid-cols-1 min-h-[70vh]">
+            <div class="relative px-6 w-full min-h-[70vh] py-20 md:py-40 dark:border-gray-700 flex items-center justify-center">
                 <div class="relative flex flex-col gap-5 text-center">
                     <div class="relative inline-flex items-center justify-center">
                         <svg class="inline-block size-12 text-green-600 dark:text-green-400"
@@ -129,7 +129,7 @@
                     <div class="mx-auto">
                         <h3 class="mb-2 text-2xl font-bold">Cette page est vide</h3>
                         <p class="text-sm/relaxed font-medium text-gray-600 dark:text-gray-400">
-                            Vos article apparaiteront ici!
+                            Vos articles apparaiteront ici!
                         </p>
                     </div>
                 </div>

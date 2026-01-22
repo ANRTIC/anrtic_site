@@ -1,37 +1,28 @@
 <?php
 
 namespace App\Livewire\Public;
+use Illuminate\Support\Facades\View;
 
-use Livewire\Attributes\Layout;
 use Livewire\Component;
-use App\Models\ChiffresSecteur;
-use App\Models\Partenaire;
-use App\Models\Article;
-use App\Models\Video;
 
-#[Layout('livewire.layouts.user')] 
 class Index extends Component
 {
-    public $chiffres;
-    public $partenaires;
-    public $articles;
-    public $videos;
-
     public function mount()
     {
-        $this->chiffres = ChiffresSecteur::where("is_online", true)->get();
-        $this->partenaires = Partenaire::where("is_active", true)->get();
-        $this->articles = Article::where("is_online", true)->latest()->take(3)->get();
-        $this->videos = Video::where("is_online", true)->latest()->take(3)->get();
+        $shared = View::getShared();
+
+        if (
+            ($shared['chiffres'] ?? collect())->isEmpty() ||
+            ($shared['partenaires'] ?? collect())->isEmpty() ||
+            ($shared['featured_articles'] ?? collect())->isEmpty()
+        ) {
+            abort(503);
+        }
     }
 
     public function render()
     {
-        return view('livewire.public.index', [
-            "chiffres" => $this->chiffres,
-            "partenaires" => $this->partenaires,
-            "articles" => $this->articles,
-            "videos" => $this->videos
-        ]);
+        return view('livewire.public.index')
+            ->extends('livewire.layouts.user');
     }
 }

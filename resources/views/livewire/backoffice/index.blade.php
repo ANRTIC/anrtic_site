@@ -54,7 +54,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $articles }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Articles
                     </dd>
@@ -74,7 +74,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $communiques }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Communiqués
                     </dd>
@@ -95,7 +95,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $evenements }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Evènements
                     </dd>
@@ -116,7 +116,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $appels_offres }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Appels d'offres
                     </dd>
@@ -137,7 +137,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $rapports }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Rapports
                     </dd>
@@ -158,7 +158,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $etudes }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Etudes & enquêtes
                     </dd>
@@ -179,7 +179,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $avis }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Avis & décisions
                     </dd>
@@ -200,7 +200,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $lois }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Lois
                     </dd>
@@ -221,7 +221,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $arretes }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Arrêtés
                     </dd>
@@ -242,7 +242,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $decrets }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Décrets
                     </dd>
@@ -263,7 +263,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">{{ $notes }}</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Notes de service
                     </dd>
@@ -284,7 +284,7 @@
             class="flex flex-col rounded-lg border border-gray-200 bg-white hover:border-gray-300 active:border-green-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:border-gray-600 dark:active:border-green-700">
             <div class="flex grow items-center justify-between p-5">
                 <dl>
-                    <dt class="text-2xl font-bold">458</dt>
+                    <dt class="text-2xl font-bold">0</dt>
                     <dd class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Messages
                     </dd>
