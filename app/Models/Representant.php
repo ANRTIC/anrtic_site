@@ -6,13 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Representant extends Model
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     // Allow mass assignment for these fields
->>>>>>> main
-=======
->>>>>>> origin/branch-homologation
     protected $fillable = [
         "nom_complet",
         "adresse",
@@ -20,9 +14,6 @@ class Representant extends Model
         "telephone",
         "demandeur_id"
     ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
     /**
      * Get the demandeur that this representant belongs to
@@ -31,7 +22,4 @@ class Representant extends Model
     {
         return $this->belongsTo(Demandeur::class);
     }
->>>>>>> main
-=======
->>>>>>> origin/branch-homologation
 }

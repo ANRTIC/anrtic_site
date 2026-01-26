@@ -17,6 +17,7 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
+        // Attempt login
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'message' => 'Invalid credentials'
@@ -25,6 +26,7 @@ class LoginController extends Controller
 
         $user = Auth::user();
 
+        // Check if user can log in
         if (method_exists($user, 'canLogin') && !$user->canLogin()) {
             return response()->json([
                 'message' => 'User is blocked or inactive'
@@ -33,25 +35,26 @@ class LoginController extends Controller
 
         // Record login activity
         UserActivity::create([
-            'user_id' => $user->id,
-            'type' => 'login',
-            'ip_address' => $request->ip(),       // matches migration
+            'user_id'    => $user->id,
+            'type'       => 'login',
+            'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
         ]);
 
+        // Create API token
         $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json([
             'token' => $token,
-            'user' => [
+            'user'  => [
                 'first_name' => $user->first_name,
-                'last_name' => $user->last_name,
-                'email' => $user->email,
-                'photo' => $user->avatar_url,
-                'role' => $user->getRoleNames()->first() ?? 'AGENT',
+                'last_name'  => $user->last_name,
+                'email'      => $user->email,
+                'photo'      => $user->avatar_url,
+                'role'       => $user->getRoleNames()->first() ?? 'AGENT',
             ],
-            'message' => 'LOGIN_SUCCESS'
-        ]);
+            'message' => 'LOGIN_SUCCESS',
+        ], 200);
     }
 
     // ---------------- LOGOUT ----------------
@@ -59,16 +62,21 @@ class LoginController extends Controller
     {
         $user = $request->user();
 
+        if (!$user) {
+            return response()->json(['message' => 'User not authenticated'], 401);
+        }
+
         // Record logout activity
         UserActivity::create([
-            'user_id' => $user->id,
-            'type' => 'logout',
-            'ip_address' => $request->ip(),       // matches migration
+            'user_id'    => $user->id,
+            'type'       => 'logout',
+            'ip_address' => $request->ip(),
             'user_agent' => $request->userAgent(),
         ]);
 
+        // Revoke all tokens
         $user->tokens()->delete();
 
-        return response()->json(['message' => 'LOGOUT_SUCCESS']);
+        return response()->json(['message' => 'LOGOUT_SUCCESS'], 200);
     }
 }

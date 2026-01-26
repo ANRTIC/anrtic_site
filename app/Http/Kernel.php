@@ -20,7 +20,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Http\Middleware\SetCacheHeaders::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \App\Http\Middleware\CustomCorsMiddleware::class,  // Add CORS middleware here for global use
+        \Illuminate\Http\Middleware\ValidatePathEncoding::class,  // Explicitly adding this to global middleware
+        \App\Http\Middleware\CustomCorsMiddleware::class,  // CORS middleware for global use
     ];
 
     /**
@@ -40,7 +41,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            \App\Http\Middleware\CustomCorsMiddleware::class,  // Add CORS middleware here for API routes only
+            \App\Http\Middleware\CustomCorsMiddleware::class,  // CORS middleware for API routes only
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];

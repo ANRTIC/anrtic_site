@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Equipement;
-use Illuminate\Support\Facades\Storage;
 
 class PhotoEquipement extends Model
 {
@@ -18,16 +17,9 @@ class PhotoEquipement extends Model
         return $this->belongsTo(Equipement::class);
     }
 
+    // Returns full URL to the photo in public/media/equipements
     public function image()
     {
-        return Storage::url($this->url);
+        return url("media/equipements/{$this->url}");
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main
-=======
-}
->>>>>>> origin/branch-homologation
