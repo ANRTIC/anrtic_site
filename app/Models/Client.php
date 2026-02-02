@@ -9,7 +9,6 @@ class Client extends Model
 {
     use HasFactory;
 
-    // Allow mass assignment
     protected $fillable = [
         'name',
         'email',
@@ -18,8 +17,7 @@ class Client extends Model
     ];
 
     public function dossiers()
-{
-    return $this->hasMany(Dossier::class);
-}
-
+    {
+        return $this->hasMany(Dossier::class, "client_id");
+    }
 }

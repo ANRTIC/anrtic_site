@@ -17,7 +17,6 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, HasRoles, HasApiTokens;
 
-    // ---------------- Mass assignable fields ----------------
     protected $fillable = [
         "photo",
         "first_name",
@@ -105,8 +104,12 @@ class User extends Authenticatable implements MustVerifyEmail
             ->select(['id','title','message','sender_id','receiver_id','is_read','created_at']);
     }
 
-    // ---------------- METHODS ----------------
+    public function dossiers()
+    {
+        return $this->hasMany(Dossier::class, "agent_id");
+    }
 
+    // ---------------- METHODS ----------------
     public function lastLogin()
     {
         $lastSession = $this->sessions()->orderBy('last_activity', 'desc')->first();

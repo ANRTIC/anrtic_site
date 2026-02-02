@@ -30,7 +30,7 @@ class Equipement extends Model
 
     public function photos()
     {
-        return $this->hasMany(PhotoEquipement::class);
+        return $this->hasMany(PhotoEquipement::class, "equipement_id");
     }
 
     public function categorie()

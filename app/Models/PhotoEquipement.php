@@ -9,17 +9,12 @@ class PhotoEquipement extends Model
 {
     protected $fillable = [
         "url",
-        "equipement_id"
+        "equipement_id",
+        "equipement_dossier_id"
     ];
 
-    public function equipement()
-    {
-        return $this->belongsTo(Equipement::class);
-    }
-
-    // Returns full URL to the photo in public/media/equipements
     public function image()
     {
-        return url("media/equipements/{$this->url}");
+        return asset($this->url);
     }
 }

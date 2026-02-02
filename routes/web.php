@@ -5,15 +5,9 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 // ---------------- PUBLIC ROUTES ----------------
-// Homepage (commented out for now)
-// Route::get("/", App\Livewire\Public\Index::class)->name("home");
-
-/*
-Dashboard view (commented out)
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-*/
+Route::get('/', function () {
+    return redirect()->route('backoffice.backoffice');
+});
 
 // ---------------- AUTHENTICATED ROUTES ----------------
 Route::middleware(['auth'])->group(function () {

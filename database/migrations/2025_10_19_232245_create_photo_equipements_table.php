@@ -15,7 +15,12 @@ return new class extends Migration
         Schema::create('photo_equipements', function (Blueprint $table) {
             $table->id();
             $table->text("url");
-            $table->foreignIdFor(Equipement::class)->constrained()->cascadeOnDelete();
+            $table->foreignId("equipement_id")->nullable()
+                  ->references("id")->on("equipements")
+                  ->cascadeOnDelete();
+            $table->foreignId("equipement_dossier_id")->nullable()
+                  ->references("id")->on("equipement_dossiers")
+                  ->cascadeOnDelete();
             $table->timestamps();
         });
     }
